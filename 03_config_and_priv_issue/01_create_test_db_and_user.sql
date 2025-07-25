@@ -3,8 +3,5 @@ CREATE DATABASE IF NOT EXISTS demo_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8
 
 CREATE USER 'svc_api'@'localhost' IDENTIFIED BY 'svc_pass';
 
--- 일부 기본 권한만 부여 (초기 상태: SELECT만 가능)
-GRANT SELECT ON demo_db.legacy_users TO 'svc_api'@'localhost';
-FLUSH PRIVILEGES;
 
 

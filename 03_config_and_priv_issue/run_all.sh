@@ -16,5 +16,8 @@ mysql -u svc_api -p'P@ssw0rd' demo_db < 04_access_test_as_user.sql
 echo "[5단계] 권한 보완 및 재확인"
 mysql -u root -p < 05_fix_privileges_and_config.sql
 
+echo "[5-1단계] svc_api 서비스 계정으로 다시 접근 테스트"
+mysql -u svc_api -p'P@ssw0rd' demo_db < 04_access_test_as_user.sql
+
 echo "[6단계] 정리"
 mysql -u root -p < 06_cleanup.sql

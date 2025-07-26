@@ -8,6 +8,8 @@ CREATE TABLE legacy_users (
     email VARCHAR(100)
 );
 
+INSERT INTO legacy_users (name, email) VALUES('lee','lee@a.b');
+
 -- 새로 추가된 테이블
 CREATE TABLE new_payments (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -16,11 +18,15 @@ CREATE TABLE new_payments (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+INSERT INTO new_payments (user_id, amount) VALUES('lee',1000);
+
+
 -- 신규 뷰
 CREATE VIEW recent_payments AS
 SELECT user_id, amount, created_at
 FROM new_payments
 WHERE created_at > NOW() - INTERVAL 30 DAY;
+
 
 -- 신규 저장 프로시저
 DELIMITER //
@@ -30,3 +36,7 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+-- 권한 할당 legacy_users 에만 SELECT 권한 부여
+GRANT SELECT ON demo_db.legacy_users TO 'svc_api'@'%';
+FLUSH PRIVILEGES;

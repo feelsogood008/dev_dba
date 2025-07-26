@@ -18,7 +18,7 @@ CREATE TABLE new_payments (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO new_payments (user_id, amount) VALUES('lee',1000);
+INSERT INTO new_payments (user_id, amount) VALUES(1,1000);
 
 
 -- 신규 뷰

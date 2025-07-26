@@ -2,7 +2,7 @@
 # 3장 실습: 권한 및 설정 누락 문제 재현 자동 실행 스크립트
 
 echo "[1단계] 테스트 DB 및 서비스 계정 생성"
-mysql -u root -p < 01_create_test_db_and_user.sql
+mysql -u root -p < 01_create_test_db_and_user.sql 
 
 echo "[2단계] 테이블, 뷰, 프로시저 생성 (관리자)"
 mysql -u root -p demo_db < 02_create_objects_as_admin.sql

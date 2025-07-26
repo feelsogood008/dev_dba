@@ -30,7 +30,5 @@
 sudo apt-get install dos2unix
 dos2unix run_all.sh
 
-
-```bash
 chmod +x run_all.sh
 ./run_all.sh

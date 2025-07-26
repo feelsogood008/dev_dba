@@ -25,5 +25,5 @@ FROM (
     FROM information_schema.columns a,
          information_schema.columns b,
          (SELECT @rownum := 0) r
-    LIMIT 1000000
+    LIMIT 10000000
 ) temp;

@@ -11,7 +11,7 @@ echo "[3단계] 현재 계정 권한 확인"
 mysql -u root -p < 03_check_user_privileges.sql
 
 echo "[4단계] 서비스 계정으로 접근 테스트"
-mysql -u svc_api -p'svc_pass' demo_db < 04_access_test_as_user.sql
+mysql -u svc_api -p'P@ssw0rd' demo_db < 04_access_test_as_user.sql
 
 echo "[5단계] 권한 보완 및 재확인"
 mysql -u root -p < 05_fix_privileges_and_config.sql

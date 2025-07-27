@@ -38,6 +38,7 @@ sudo apt install python3-pip
 pip install mysql-connector-python
 
 2. 별도 터미널에서 수행
+- demo_db 가 존재해야 하므로 01_init_and_config.sql 를 수행한 후에 실행한다
 python3 check_connections.py
 
 3. run_all.sh 실행

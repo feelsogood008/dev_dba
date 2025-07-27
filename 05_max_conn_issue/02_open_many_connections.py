@@ -14,7 +14,7 @@ try:
         )
         connections.append(conn)
         print(f"[{i+1}] 연결 생성 성공")
-        time.sleep(0.2)
+        time.sleep(0.1)
 except Exception as e:
     print("❌ 연결 실패 발생:", e)
 finally:

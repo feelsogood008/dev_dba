@@ -18,6 +18,7 @@
 | `03_adjust_max_connections.sql` | `max_connections` 값을 임시로 증가 |
 | `04_use_connection_pool.py` | 커넥션 풀을 이용한 효율적 연결 방식 실습 |
 | `05_cleanup.sql` | 실습 후 계정 및 DB 정리 |
+| `check_connections.py` | 현재 DB 커넥션 개수 확인 |
 | `run_all.sh` | 전체 실습 과정을 순차 실행하는 스크립트 |
 
 ---
@@ -36,7 +37,10 @@ dos2unix run_all.sh
 sudo apt install python3-pip
 pip install mysql-connector-python
 
-2. 실행
+2. 별도 터미널에서 수행
+python3 check_connections.py
+
+3. run_all.sh 실행
 chmod +x run_all.sh
 ./run_all.sh
 

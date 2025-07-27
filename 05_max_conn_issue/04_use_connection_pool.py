@@ -23,6 +23,6 @@ try:
         print(f"[{i+1}] 연결 성공: {cursor.fetchone()}")
         cursor.close()
         conn.close()
-        time.sleep(0.1)
+        time.sleep(0.3)
 except Exception as e:
     print("❌ 커넥션 풀 사용 중 오류:", e)

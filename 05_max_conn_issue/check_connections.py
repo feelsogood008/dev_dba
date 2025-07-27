@@ -5,10 +5,10 @@ import mysql.connector
 
 # DB 접속 정보 정의
 dbconfig = {
-    host='localhost',
-    user='conn_test',
-    password='P@ssw0rd',
-    database='demo_db'
+    "host": "localhost",
+    "user": "conn_test",
+    "password": "P@ssw0rd",
+    "database": "demo_db"
 }
 
 try:

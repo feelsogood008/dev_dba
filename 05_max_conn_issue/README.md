@@ -33,8 +33,8 @@ sudo apt-get install dos2unix
 dos2unix run_all.sh
 
 1. Python 모듈 설치  
-   sudo apt install python3-pip
-   pip install mysql-connector-python
+sudo apt install python3-pip
+pip install mysql-connector-python
 
 2. 실행
 chmod +x run_all.sh

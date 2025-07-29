@@ -25,7 +25,6 @@
 
 ## 🛠️ 실행 방법
 
-## 실행 방법
 - 만일 -bash: ./run_all.sh: /bin/bash^M: bad interpreter: No such file or directory 에러가 발생한다면
 - dos2unix 설치 후 줄바꿈을 LF 로 변환
   

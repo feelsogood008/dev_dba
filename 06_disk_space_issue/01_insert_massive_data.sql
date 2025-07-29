@@ -2,7 +2,6 @@
 -- demo_db 생성 및 환경 확인
 CREATE DATABASE IF NOT EXISTS demo_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-
 USE demo_db;
 
 -- 대량 데이터 삽입을 위한 로그 테이블 생성

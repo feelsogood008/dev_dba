@@ -27,11 +27,7 @@
 sudo apt-get install dos2unix
 dos2unix run_all.sh
 
-1. `run_all.sh` 파일에 실행 권한을 부여합니다.
-    
-    chmod +x run_all.sh
-    
-2. 전체 실습 실행:
-    
-    ./run_all.sh
+1. run_all.sh 실행
+chmod +x run_all.sh
+./run_all.sh
     

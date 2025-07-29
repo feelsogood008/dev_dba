@@ -3,7 +3,7 @@
 
 
 echo "[1단계] logs 테이블 및 archive 테이블 생성"
-mysql -u root -p demo_db < 01_insert_massive_data.sql
+mysql -u root -p < 01_insert_massive_data.sql
 
 echo "[2단계] 디스크 사용량 확인"
 bash 02_check_disk_usage.sh

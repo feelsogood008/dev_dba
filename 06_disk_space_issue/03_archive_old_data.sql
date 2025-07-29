@@ -3,7 +3,6 @@ USE demo_db;
 
 
 -- 오래된 로그를 아카이브 테이블로 이동
-
 CREATE TABLE logs_archive LIKE logs;
 
 

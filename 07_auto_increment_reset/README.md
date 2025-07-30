@@ -9,13 +9,15 @@
 
 
 ## 📂 구성 파일
-- 01_create_test_table.sql: 테이블 생성 및 초기 데이터 삽입
-- 02_check_auto_increment.sql: 현재 auto_increment 상태 확인
-- 03_truncate_table.sql: truncate 명령 실행
-- 04_insert_after_truncate.sql: truncate 이후 데이터 삽입
-- 05_delete_and_insert.sql: delete 이후 삽입 시 auto_increment 확인
-- 06_cleanup.sql: 전체 정리 스크립트
-- run_all.sh: 전체 실행 스크립트
+| 파일명 | 설명 |
+|--------|------|
+| 01_create_test_table.sql | 테이블 생성 및 초기 데이터 삽입 |
+| 02_check_auto_increment.sql | 현재 auto_increment 상태 확인 |
+| 03_truncate_table.sql | truncate 명령 실행 |
+| 04_insert_after_truncate.sql | truncate 이후 데이터 삽입 |
+| 05_delete_and_insert.sql | delete 이후 삽입 시 auto_increment 확인 |
+| 06_cleanup.sql | 전체 정리 스크립트 |
+| run_all.sh | 전체 실행 스크립트 |
 
 
 ---

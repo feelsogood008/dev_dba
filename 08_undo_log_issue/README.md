@@ -20,7 +20,7 @@ undo 관련 설정(innodb_undo_log_truncate 등)의 영향을 실습을 통해 �
 | 03_adjust_undo_settings.sql | undo 관련 파라미터 설정 변경 |
 | 04_delete_many_rows.sql | 대량 DELETE 실행 |
 | 05_cleanup.sql | 리소스 정리 테이블 |
-| check_undo_log_loop.sh | 1초마다 undo 로그 상태 확인 쉘 스크립트 |
+| check_undo_log_loop.sh | n초마다 undo 로그 상태 확인 쉘 스크립트 |
 | run_all.sh | 전체 실행 스크립트 |
 
 
@@ -46,5 +46,6 @@ chmod +x run_all.sh
 2. check_undo_log_loop.sh 실행
 chmod +x check_undo_log_loop.sh
 ./check_undo_log_loop.sh
+
 
 

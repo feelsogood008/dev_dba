@@ -13,13 +13,15 @@ undo 관련 설정(innodb_undo_log_truncate 등)의 영향을 실습을 통해 �
 
 ## 📁 구성 파일
 
-- 01_create_table.sql: 실습용 테이블 생성
-- 02_insert_bulk_data.sql: 100만 건 더미 데이터 삽입
-- 03_check_undo_log.sql: undo 상태 및 트랜잭션 확인 쿼리
-- 04_delete_many_rows.sql: 대량 DELETE 문 실행
-- 05_adjust_undo_settings.sql: undo 설정 확인/조정
-- 06_cleanup.sql: 실습 환경 정리
-- run_all.sh: 전체 실습 실행 스크립트
+| 파일명 | 설명 |
+|--------|------|
+| 01_create_table.sql | 테스트 테이블 생성, undo 상태 확인 |
+| 02_insert_bulk_data.sql | 100만 건의 더미 데이터 입력, undo 상태 확인 |
+| 03_adjust_undo_settings.sql | undo 관련 파라미터 설정 변경 |
+| 04_delete_many_rows.sql | 대량 DELETE 실행 |
+| 05_cleanup.sql | 리소스 정리 테이블 |
+| check_undo_log_loop.sh | 1초마다 undo 로그 상태 확인 쉘 스크립트 |
+| run_all.sh | 전체 실행 스크립트 |
 
 
 ---
@@ -41,4 +43,8 @@ chmod +x run_all.sh
 ./run_all.sh
 
 
-2. 
+2. check_undo_log_loop.sh 실행
+chmod +x check_undo_log_loop.sh
+./check_undo_log_loop.sh
+
+

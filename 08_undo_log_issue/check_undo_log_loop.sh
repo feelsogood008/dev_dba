@@ -1,10 +1,11 @@
 #!/bin/bash
 
 echo "[undo 로그 상태를 1초 간격으로 30회 확인합니다.]"
+trap "echo '루프 중단됨'; exit" SIGINT
 
 for i in {1..30}
 do
-  echo "[$i 회차]"
+  echo "[$i 회차] undo 로그 모니터링 중... (중단하려면 Ctrl+C)"
   mysql -u root -pP@ssw0rd -e "
       SELECT 
           trx.trx_id AS trx_id,

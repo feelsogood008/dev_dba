@@ -1,21 +1,20 @@
 #!/bin/bash
 
-echo "[1단계] 테이블 생성, undo 설정 확인"
-mysql -u root -p < 01_create_table.sql
+echo "[1단계] 초기화 및 설정 확인"
+mysql -u root -p < 01_init_environment.sql
 
-echo "[2단계] 더미 데이터 입력 (100만 건)"
-mysql -u root -p < 02_insert_bulk_data.sql
+echo "[2단계] 테이블에 대용량 데이터 삽입 (Python 스크립트)"
+python3 02_insert_bulk_data.py
 
-echo "[3단계] undo 설정 조정"
+echo "[3단계] 현재 undo 로그 상태 확인 (반복 모니터링)"
+echo "이 단계는 루프 실행입니다. Ctrl+C 로 수동 중단하세요."
+bash 03_check_undo_log_loop.sh
 
-# 사용자 입력 받기
-read -p "설정할 innodb_max_undo_log_size 값 (예: 209715200): " UNDO_SIZE
-
-# SQL에 변수 넘기면서 실행
-mysql -u root -p -e "SET @undo_log_size=$UNDO_SIZE; SOURCE 03_adjust_undo_settings.sql;"
-
-echo "[4단계] 대량 DELETE 실행"
+echo "[4단계] 대량 삭제 쿼리 실행"
 mysql -u root -p < 04_delete_many_rows.sql
 
-echo "[5단계] 정리"
-mysql -u root -p < 05_cleanup.sql
+echo "[5단계] undo 설정값 조정 시도"
+mysql -u root -p < 05_adjust_undo_settings.sql
+
+echo "[6단계] 환경 정리"
+mysql -u root -p < 06_cleanup.sql

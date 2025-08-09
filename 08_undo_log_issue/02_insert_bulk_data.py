@@ -21,7 +21,7 @@ try:
 
     cursor.execute("START TRANSACTION")
     
-    # 약 5,000,000건 데이터 생성
+    # 약 10,000,000건 데이터 생성
     total_rows = 10000000
     batch_size = 100000
     sample_text = "X" * 255  # 255자 데이터

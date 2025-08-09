@@ -18,6 +18,16 @@ do
     "
 
     echo ""
+
+    echo "[UNDO 파일 크기 (information_schema.innodb_tablespaces)]"
+    mysql -u root -pP@ssw0rd -e "
+       SELECT NAME, FILE_SIZE, ALLOCATED_SIZE 
+       FROM information_schema.innodb_tablespaces 
+       WHERE NAME LIKE 'innodb_undo%' \G
+    "
+
+    echo ""
+        
     echo "[SHOW ENGINE INNODB STATUS 결과 요약]"
     mysql -u root -pP@ssw0rd -e "SHOW ENGINE INNODB STATUS\G" | \
         grep -A 20 "TRANSACTIONS" | grep -E "History list length|Purge done|Trx id counter"

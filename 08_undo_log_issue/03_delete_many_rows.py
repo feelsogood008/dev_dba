@@ -17,7 +17,7 @@ try:
     
     
     cursor.execute("START TRANSACTION")
-    cursor.execute("DELETE FROM undo_test")
+    cursor.execute("DELETE FROM undo_test WHERE id < 5000000 ")
 
     print("Rows deleted. Sleeping before commit...")
     input("Press Enter to commit the deletion...")

@@ -22,15 +22,15 @@ try:
     cursor.execute("START TRANSACTION")
     
     # 약 5,000,000건 데이터 생성
-    total_rows = 5000000
-    batch_size = 10000
+    total_rows = 10000000
+    batch_size = 100000
     sample_text = "X" * 255  # 255자 데이터
 
     for i in range(0, total_rows, batch_size):
         data_batch = [(sample_text,) for _ in range(batch_size)]
         cursor.executemany("INSERT INTO undo_test (data) VALUES (%s)", data_batch)        
 
-        if i % 10000 == 0:
+        if i % 100000 == 0:
             print(f"  {i}건 입력 완료...")
 
     

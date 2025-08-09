@@ -20,10 +20,22 @@ try:
     conn.commit()
 
     cursor.execute("START TRANSACTION")
-    for i in range(500000):
-        cursor.execute("INSERT INTO undo_test (data) VALUES (%s)", ('x' * 200,))
+    
+    # 약 300,000건 데이터 생성
+    total_rows = 300_000
+    batch_size = 1000
+    sample_text = "X" * 255  # 255자 데이터
+
+    for i in range(0, total_rows, batch_size):
+        data_batch = [(sample_text,) for _ in range(batch_size)]
+        cursor.executemany("INSERT INTO undo_test (data) VALUES (%s)", data_batch)        
+
         if i % 10000 == 0:
-            print(f"{i} rows inserted...")
+            print(f"  {i}건 입력 완료...")
+
+    
+    print(f"[완료] 총 {total_rows}건 데이터 입력 완료 (소요 시간: {end_time - start_time:.2f}초)")
+
 
     print("Data insert complete. Sleeping to delay commit...")
     input("Press Enter to commit the transaction...")

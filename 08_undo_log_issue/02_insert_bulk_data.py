@@ -22,7 +22,7 @@ try:
     cursor.execute("START TRANSACTION")
     
     # 약 300,000건 데이터 생성
-    total_rows = 300_000
+    total_rows = 300000
     batch_size = 1000
     sample_text = "X" * 255  # 255자 데이터
 
@@ -34,7 +34,7 @@ try:
             print(f"  {i}건 입력 완료...")
 
     
-    print(f"[완료] 총 {total_rows}건 데이터 입력 완료 (소요 시간: {end_time - start_time:.2f}초)")
+    print(f"[완료] 총 {total_rows}건 데이터 입력 완료")
 
 
     print("Data insert complete. Sleeping to delay commit...")

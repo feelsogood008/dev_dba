@@ -7,7 +7,7 @@ echo "[환경설정값 변경] undo 설정값 조정"
 echo " 파일 참고"
 
 echo "[1단계] 초기화 및 설정 확인"
-mysql -u root -p < 01_init_environment.sql
+mysql -u root -p < 01_create_table.sql
 
 echo "[2단계] 테이블에 대용량 데이터 삽입 (Python 스크립트)"
 python3 02_insert_bulk_data.py

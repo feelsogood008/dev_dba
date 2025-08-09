@@ -10,6 +10,12 @@ try:
     )
     cursor = conn.cursor()
 
+    # 삭제 전 undo_test 테이블 건수 확인
+    cursor.execute("SELECT COUNT(*) FROM undo_test")
+    row_count = cursor.fetchone()[0]
+    print(f"[삭제 전 데이터 건수] undo_test 테이블 : {row_count} 건")
+    
+    
     cursor.execute("START TRANSACTION")
     cursor.execute("DELETE FROM undo_test")
 

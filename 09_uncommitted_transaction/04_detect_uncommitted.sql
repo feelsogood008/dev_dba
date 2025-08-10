@@ -5,6 +5,7 @@
 USE demo_db;
 
 
+SELECT "트랜잭션 정보" AS Transaction_Info
 SELECT
   trx.trx_id,
   trx.trx_started,
@@ -15,6 +16,9 @@ SELECT
 FROM information_schema.innodb_trx trx
 ORDER BY duration_seconds DESC;
 
+SELECT "--------------"
 
 -- 추가로 현재 프로세스 목록도 같이 보면 편하다
+SELECT "현재 프로세스 목록" AS Process_Info
 SELECT * FROM information_schema.processlist WHERE COMMAND != 'Sleep' OR TIME > 0 ORDER BY TIME DESC LIMIT 20;
+

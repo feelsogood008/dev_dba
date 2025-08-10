@@ -11,7 +11,7 @@ echo
 echo "[2단계] 트랜잭션(커밋하지 않음) 실행 - 백그라운드에서 실행"
 # 백그라운드에서 실행: 이 클라이언트는 내부에서 SLEEP(300)을 실행하므로 트랜잭션이 열려 있는 상태 유지
 # 출력은 txn_open.log에 남김
-nohup $MYSQL_CMD < 02_open_transaction.sql > txn_open.log 2>&1 &
+nohup $MYSQL_CMD --batch --silent < 02_open_transaction.sql > txn_open.log 2>&1 &
 TXN_CLIENT_PID=$!
 echo "백그라운드 mysql client PID: ${TXN_CLIENT_PID}"
 echo "로그: txn_open.log"

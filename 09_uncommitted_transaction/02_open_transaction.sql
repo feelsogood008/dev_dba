@@ -4,7 +4,6 @@
 
 USE demo_db;
 
-tee txn_open.log;
 
 -- 트랜잭션 시작
 START TRANSACTION;
@@ -20,6 +19,4 @@ SELECT * FROM products WHERE id = 1;
 -- SLEEP 시간을 충분히 길게 잡아 모니터링 가능하게 함 (예: 300초)
 SELECT SLEEP(300);
 -- 세션이 종료되면 (클라이언트 종료 등) 이 트랜잭션은 자동으로 ROLLBACK 됨
-
-notee;
 

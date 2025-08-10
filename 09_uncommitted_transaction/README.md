@@ -13,13 +13,15 @@
 
 ## 📁 구성 파일
 
-- `01_create_table.sql` : 테스트 DB/테이블 생성 및 초기 데이터 삽입
-- `02_open_transaction.sql` : START TRANSACTION; UPDATE ...; SELECT SLEEP(300); (COMMIT 없음)
-- `03_select_in_other_session.sql` : 다른 세션에서 데이터 조회
-- `04_detect_uncommitted.sql` : information_schema 를 이용한 미커밋 트랜잭션 탐지 쿼리
-- `05_cleanup.sql` : 실습 환경 정리 (DB drop)
-- `cleanup_kill.sh` : 열린 트랜잭션을 찾아 KILL 명령으로 종료(롤백)하는 쉘 스크립트
-- `run_all.sh` : 전체 실습 자동 실행 스크립트
+| 파일명 | 설명 |
+|--------|------|
+| 01_create_table.sql | 테스트 DB/테이블 생성 및 초기 데이터 삽입 |
+| 02_open_transaction.sql | START TRANSACTION; UPDATE ...; SELECT SLEEP(300); (COMMIT 없음) |
+| 03_select_in_other_session.sql | 다른 세션에서 데이터 조회 |
+| 04_detect_uncommitted.sql | information_schema 를 이용한 미커밋 트랜잭션 탐지 쿼리 |
+| 05_cleanup.sql | 실습 환경 정리 (DB drop) |
+| cleanup_kill.sh | 열린 트랜잭션을 찾아 KILL 명령으로 종료(롤백)하는 쉘 스크립트 |
+| run_all.sh | 전체 실행 스크립트 |
 
 
 ---
@@ -37,5 +39,6 @@ dos2unix run_all.sh
 1. 테스트 환경에서 디렉토리로 이동:
    cd 09_uncommitted_transaction
    chmod +x cleanup_kill.sh run_all.sh
+
 
 

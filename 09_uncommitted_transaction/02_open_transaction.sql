@@ -12,10 +12,12 @@ START TRANSACTION;
 UPDATE products SET price = price * 1.10 WHERE id = 1;
 
 -- 변경값을 같은 세션에서 바로 확인
-SELECT 'inside-transaction (before commit):' AS note, * FROM products WHERE id = 1;
+SELECT "inside-transaction (before commit): Keyboard Price is 55.00" AS note;
+SELECT * FROM products WHERE id = 1;
 
 -- 세션을 유지하기 위해 의도적으로 SLEEP 실행 (여기서 COMMIT 하지 않음)
 -- SLEEP 시간을 충분히 길게 잡아 모니터링 가능하게 함 (예: 300초)
 SELECT SLEEP(300);
 -- 세션이 종료되면 (클라이언트 종료 등) 이 트랜잭션은 자동으로 ROLLBACK 됨
+
 

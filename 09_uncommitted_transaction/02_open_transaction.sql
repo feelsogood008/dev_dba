@@ -4,6 +4,7 @@
 
 USE demo_db;
 
+tee txn_open.log;
 
 -- 트랜잭션 시작
 START TRANSACTION;
@@ -20,4 +21,5 @@ SELECT * FROM products WHERE id = 1;
 SELECT SLEEP(300);
 -- 세션이 종료되면 (클라이언트 종료 등) 이 트랜잭션은 자동으로 ROLLBACK 됨
 
+notee;
 

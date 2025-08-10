@@ -1,7 +1,7 @@
 # 09_uncommitted_transaction - 트랜잭션 미커밋 상황 실습
 
 
-# ✅ 실습 목적
+## ✅ 실습 목적
 
 - 트랜잭션을 시작하고 COMMIT 하지 않은 상태에서 다른 세션의 데이터 조회 결과가 달라지는 현상을 재현한다.
 - information_schema를 활용해 미커밋(또는 장시간 열린) 트랜잭션을 탐지하는 방법을 익힌다.
@@ -11,7 +11,7 @@
 ---
 
 
-# 📁 구성 파일
+## 📁 구성 파일
 
 - `01_create_table.sql` : 테스트 DB/테이블 생성 및 초기 데이터 삽입
 - `02_open_transaction.sql` : START TRANSACTION; UPDATE ...; SELECT SLEEP(300); (COMMIT 없음)
@@ -24,10 +24,18 @@
 
 ---
 
-# 🛠️ 실행 방법
+## 🛠️ 실행 방법
+
+- 만일 -bash: ./run_all.sh: /bin/bash^M: bad interpreter: No such file or directory 에러가 발생한다면
+- dos2unix 설치 후 줄바꿈을 LF 로 변환
+
+```bash
+   
+sudo apt-get install dos2unix
+dos2unix run_all.sh
 
 1. 테스트 환경에서 디렉토리로 이동:
-   ```bash
    cd 09_uncommitted_transaction
    chmod +x cleanup_kill.sh run_all.sh
+
 

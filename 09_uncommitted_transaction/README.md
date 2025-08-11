@@ -36,9 +36,10 @@
 sudo apt-get install dos2unix
 dos2unix run_all.sh
 
-1. 테스트 환경에서 디렉토리로 이동:
-   cd 09_uncommitted_transaction
-   chmod +x cleanup_kill.sh run_all.sh
+1. 스크립트 파일 실행 : 
+  chmod +x cleanup_kill.sh run_all.sh
+  ./run_all.sh
+  ./cleanup_kill.sh 
 
 
 

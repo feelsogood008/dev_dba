@@ -7,6 +7,6 @@ if ! command -v pt-query-digest &> /dev/null; then
     exit 1
 fi
 
-echo "[1] Slow query 로그 분석 시작..."
+echo "[info-1] Slow query 로그 분석 시작..."
 pt-query-digest $SLOW_LOG > slow_report.txt
-echo "[2] 분석 완료: slow_report.txt 확인"
+echo "[info-2] 분석 완료: slow_report.txt 확인"

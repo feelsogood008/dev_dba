@@ -1,5 +1,5 @@
 #!/bin/bash
-SLOW_LOG="/var/lib/mysql/slow.log"
+SLOW_LOG="/var/lib/mysql/mysql-slow.log"
 
 if ! command -v pt-query-digest &> /dev/null; then
     echo "pt-query-digest가 설치되어 있지 않습니다."

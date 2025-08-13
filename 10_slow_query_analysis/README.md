@@ -8,13 +8,13 @@
 
 ## 📂 구성 파일
 
-10_slow_query_analysis/
-├── 01_enable_slow_log.sql       # slow query log 설정
-├── 02_generate_slow_queries.sql # 테스트용 느린 쿼리 생성
-├── 03_cleanup.sql              # 리소스 정리,slow query log 비활성화
-├── analyze_with_ptqd.sh        # pt-query-digest로 분석
-├── run_all.sh                  # 전체 시나리오 실행
-└── README.md                   # 설명 문서
+| 파일명 | 설명 |
+|--------|------|
+| 01_enable_slow_log.sql | slow query log 설정 |
+| 02_generate_slow_queries.sql | 테스트용 느린 쿼리 생성 |
+| 03_cleanup.sql | 리소스 정리,slow query log 비활성화 |
+| analyze_with_ptqd.sh | pt-query-digest로 분석 |
+| run_all.sh | 전체 실행 스크립트 |
 
 
 ---
@@ -29,4 +29,5 @@
 
 
 2. 
+
 

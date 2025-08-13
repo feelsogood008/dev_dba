@@ -12,6 +12,7 @@ SET GLOBAL long_query_time = 0.5;
 SET GLOBAL log_queries_not_using_indexes = 1;
 
 -- 현재 설정 확인
-SHOW VARIABLES LIKE 'slow_query%';
-SHOW VARIABLES LIKE 'long_query_time';
-SHOW VARIABLES LIKE 'log_queries_not_using_indexes';
+SHOW VARIABLES LIKE '%slow_query%';
+SHOW VARIABLES LIKE '%long_query_time%';
+SHOW VARIABLES LIKE '%log_queries_not_using_indexes%';
+

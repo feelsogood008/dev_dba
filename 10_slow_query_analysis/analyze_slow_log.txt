@@ -6,6 +6,19 @@
 -- cat /var/lib/mysql/mysql-slow.log | less
 
 -- MySQL 내장 분석기 사용
--- mysqldumpslow는 슬로우 쿼리를 집계해줌
+-- mysqldumpslow 는 슬로우 쿼리를 집계해줌
 -- 예: mysqldumpslow -s t -t 10 /var/lib/mysql/mysql-slow.log
 
+-- 수행결과 예시
+$ sudo mysqldumpslow -s t -t 10 /var/lib/mysql/mysql-slow.log
+
+Reading mysql slow query log from /var/lib/mysql/mysql-slow.log
+Count: 1  Time=2.02s (2s)  Lock=0.00s (0s)  Rows=0.0 (0), root[root]@localhost
+  INSERT INTO slow_test (data)
+  SELECT REPEAT('S', N)
+  FROM information_schema.tables a,
+  information_schema.tables b
+  LIMIT N
+
+Count: 1  Time=0.37s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), root[root]@localhost
+  SELECT * FROM slow_test WHERE data LIKE 'S'

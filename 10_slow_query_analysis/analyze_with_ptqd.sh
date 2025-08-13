@@ -3,7 +3,7 @@ SLOW_LOG="/var/lib/mysql/mysql-slow.log"
 
 if ! command -v pt-query-digest &> /dev/null; then
     echo "pt-query-digest가 설치되어 있지 않습니다."
-    echo "설치 방법: sudo apt install percona-toolkit"
+    echo "설치 방법: sudo apt install percona-toolkit (README.md 파일 참고)"
     exit 1
 fi
 

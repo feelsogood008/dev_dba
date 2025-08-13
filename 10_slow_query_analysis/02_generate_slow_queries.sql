@@ -1,10 +1,6 @@
-
-
 CREATE DATABASE IF NOT EXISTS demo_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-
 USE demo_db;
-
 
 -- 테스트 테이블 생성
 DROP TABLE IF EXISTS slow_test;
@@ -27,3 +23,4 @@ SELECT * FROM slow_test WHERE data LIKE '%zzz%';
 
 -- 불필요한 FULL SCAN
 SELECT COUNT(*) FROM slow_test WHERE id > 0 ORDER BY data;
+

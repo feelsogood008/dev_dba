@@ -41,6 +41,42 @@ SET SESSION unique_checks = 0;
 SET SESSION foreign_key_checks = 0;
 SET SESSION autocommit = 0;
 
+INSERT INTO lt_users (id, name, email, created_at, status)
+SELECT
+    ROW_NUMBER() OVER () AS id,
+    CONCAT('user_', ROW_NUMBER() OVER ()) AS name,
+    CONCAT('user_', ROW_NUMBER() OVER (), '@example.com') AS email,
+    FROM_UNIXTIME(UNIX_TIMESTAMP(NOW()) - (ROW_NUMBER() OVER () % 864000)) AS created_at, -- 최근 10일 분포
+    CASE
+        WHEN (ROW_NUMBER() OVER () % 13) = 0 THEN 'blocked'
+        WHEN (ROW_NUMBER() OVER () % 7)  = 0 THEN 'dormant'
+        ELSE 'active'
+    END AS status
+FROM information_schema.tables t1
+JOIN information_schema.tables t2
+LIMIT 50000;
+
+INSERT INTO large_table (
+    user_id, category_id, title, content, created_at, status, amount, email, ip, view_count
+)
+SELECT
+    FLOOR(1 + (ROW_NUMBER() OVER () % 50000)) AS user_id, -- 5만 명의 유저
+    FLOOR(1 + (ROW_NUMBER() OVER () % 50)) AS category_id, -- 50개 카테고리
+    CONCAT('Product ', ROW_NUMBER() OVER ()) AS title, -- 상품명
+    CONCAT('Lorem ipsum dolor sit amet ', ROW_NUMBER() OVER ()) AS content, -- 본문
+    FROM_UNIXTIME(UNIX_TIMESTAMP(NOW()) - (ROW_NUMBER() OVER () % 31536000)) AS created_at, -- 최근 1년 분포
+    CASE
+        WHEN (ROW_NUMBER() OVER () % 9) = 0 THEN 'pending'
+        WHEN (ROW_NUMBER() OVER () % 5) = 0 THEN 'inactive'
+        ELSE 'active'
+    END AS status,
+    ROUND(RAND() * 1000, 2) AS amount, -- 랜덤 금액
+    CONCAT('user', ROW_NUMBER() OVER (), '@example.com') AS email, -- 이메일
+    CONCAT('192.168.', FLOOR(RAND() * 256), '.', FLOOR(RAND() * 256)) AS ip, -- 랜덤 IP
+    FLOOR(RAND() * 10000) AS view_count -- 랜덤 조회수
+FROM information_schema.tables t1
+JOIN information_schema.tables t2
+LIMIT 500000;
 
 
 -- H) 세션 옵션 원복
@@ -51,7 +87,6 @@ SET SESSION autocommit         = @old_autocommit;
 -- I) 통계 갱신(선택)
 ANALYZE TABLE large_table;
 ANALYZE TABLE lt_users;
-
 
 
 

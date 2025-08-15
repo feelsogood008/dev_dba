@@ -98,7 +98,7 @@ FROM large_table
 WHERE category_id = 42
   AND status = 'active'
 ORDER BY created_at DESC
-LIMIT 50;
+LIMIT 500;
 
 -- 2) LIKE (전방/후방 와일드카드)
 -- 제목에 'sale' 포함, 내용에 'ipsum' 포함
@@ -106,12 +106,14 @@ SELECT id, title, content
 FROM large_table
 WHERE title LIKE '%sale%'
    OR content LIKE '%ipsum%';
+LIMIT 100;
 
 -- 3) 함수 적용 필터
 -- 2025-08-01 날짜에 생성된 데이터
 SELECT *
 FROM large_table
 WHERE DATE(created_at) = '2025-08-01';
+LIMIT 500;
 
 -- 4) GROUP BY / 집계
 -- user_id별 amount 합계 상위 10명
@@ -119,13 +121,14 @@ SELECT user_id, SUM(amount) AS total_amount
 FROM large_table
 GROUP BY user_id
 ORDER BY total_amount DESC
-LIMIT 10;
+LIMIT 100;
 
 -- 5) DISTINCT
 -- active 상태의 고유 이메일 목록
 SELECT DISTINCT email
 FROM large_table
 WHERE status = 'active';
+LIMIT 500;
 
 -- 6) 서브쿼리 NOT IN
 -- blocked 상태의 유저를 제외한 데이터
@@ -134,6 +137,7 @@ FROM large_table
 WHERE user_id NOT IN (
     SELECT id FROM lt_users WHERE status = 'blocked'
 );
+LIMIT 500;
 
 -- 7) JOIN
 -- active 상태의 유저 데이터
@@ -141,6 +145,7 @@ SELECT p.*
 FROM large_table p
 JOIN lt_users u ON p.user_id = u.id
 WHERE u.status = 'active';
+LIMIT 500;
 
 -- 8) ORDER BY RAND()
 -- 임의의 20개 데이터
@@ -155,6 +160,7 @@ SELECT *
 FROM large_table
 WHERE status = 'pending'
   AND amount BETWEEN 100 AND 200;
+LIMIT 500;
 
 -- 10) 큰 OFFSET
 -- 최신순 20만 건 이후의 50개

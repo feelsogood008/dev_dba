@@ -28,10 +28,11 @@
 ---
 
 
-# 🛠️ 실행 방법
+## 🛠️ 실행 방법
 
 1. 테스트 환경에서 디렉토리로 이동:
    ```bash
    cd 111_binlog_recovery
    chmod +x analyze_with_ptqd.sh run_all.sh
+
 

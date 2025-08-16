@@ -4,7 +4,7 @@
 
 -- 1. 환경설정값 변경 (my.cnf 수정)
 -- [mysqld] 섹션에 다음 내용을 추가
-log_bin                 = /var/lib/mysql/mysql-bin
+log_bin                 = /var/log/mysql/mysql-bin.log
 binlog_format           = ROW
 server_id               = 1
 expire_logs_days        = 7
@@ -16,3 +16,4 @@ sudo systemctl restart mysql
 -- 3. 활성화 확인
 SHOW VARIABLES LIKE 'log_bin';
 SHOW VARIABLES LIKE 'binlog_format';
+

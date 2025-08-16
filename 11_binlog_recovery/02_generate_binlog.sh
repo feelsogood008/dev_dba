@@ -9,7 +9,7 @@ mysql -u$MYSQL_USER -p$MYSQL_PWD < 01_create_table_insert_data.sql
 echo "[2] 풀백업 생성"
 BACKUP_FILE="full_backup_$(date +%Y%m%d_%H%M%S).sql"
 
-mysqldump -u $MYSQL_USER -p$MYSQL_PASS \
+mysqldump -u $MYSQL_USER -p$MYSQL_PWD \
   --databases demo_db \
   --single-transaction \
   --source-data=2 \

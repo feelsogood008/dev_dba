@@ -1,0 +1,18 @@
+
+-- MySQL binary log 활성화 방법
+-- 이 작업은 MySQL 서버 설정(my.cnf) 수정이 필요하며, 서버 재시작이 필요합니다.
+
+-- 1. 환경설정값 변경 (my.cnf 수정)
+-- [mysqld] 섹션에 다음 내용을 추가
+log_bin                 = /var/lib/mysql/mysql-bin
+binlog_format           = ROW
+server_id               = 1
+expire_logs_days        = 7
+max_binlog_size         = 100M
+
+-- 2. MySQL 서버 재시작
+sudo systemctl restart mysql
+
+-- 3. 활성화 확인
+SHOW VARIABLES LIKE 'log_bin';
+SHOW VARIABLES LIKE 'binlog_format';

@@ -12,7 +12,7 @@ BACKUP_FILE="full_backup_$(date +%Y%m%d_%H%M%S).sql"
 mysqldump -u $MYSQL_USER -p$MYSQL_PASS \
   --databases demo_db \
   --single-transaction \
-  --master-data=2 \
+  --source-data=2 \
   > $BACKUP_FILE
 
 echo "풀백업 생성 완료: $BACKUP_FILE"

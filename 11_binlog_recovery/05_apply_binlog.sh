@@ -1,6 +1,7 @@
 #!/bin/bash
 FULLBACKUP_FILE_NAME=$1
 DB_NAME="demo_db"
+TABLE_NAME="customers"
 MYSQL_USER="root"
 MYSQL_PWD="P@ssw0rd"
 
@@ -16,9 +17,6 @@ if [ ! -f "$FILTERED_SQL" ]; then
   exit 1
 fi
 
-# demo_db 삭제 후 풀백업 파일에서 복구하기
-echo "demo_db 삭제"
-mysql -u$MYSQL_USER -p"$MYSQL_PWD" -e "DROP DATABASE IF EXISTS $DB_NAME;"
 
 echo "[풀백업 적용] full_backup_xxxx.sql → ${DB_NAME}"
 mysql -u$MYSQL_USER -p"$MYSQL_PWD" $DB_NAME < $FULLBACKUP_FILE_NAME

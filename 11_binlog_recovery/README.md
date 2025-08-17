@@ -20,7 +20,7 @@
 | 05_apply_binlog.sh | 필터링된 binlog 적용 |
 | 06_verify_recovery.sql | 삭제 전/후/복구 후 데이터 비교 |
 | 07_cleanup.sql | 사용 리소스 삭제 |
-| run_all.sh | 전체 실행 스크립트 |
+| run_step.txt | 단계별 실행 스크립트 안내|
 | enable_binlog.txt | 환경설정값 변경 |
 
 
@@ -33,5 +33,6 @@
 1. 테스트 환경에서 디렉토리로 이동:
    ```bash
    cd 11_binlog_recovery
-   chmod +x 02_generate_binlog.sh 04_extract_binlog.sh  05_apply_binlog.sh  run_all.sh
+   chmod +x 02_generate_binlog.sh 04_extract_binlog.sh  05_apply_binlog.sh
+
 

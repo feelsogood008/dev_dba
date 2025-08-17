@@ -25,9 +25,3 @@ awk 'BEGIN{skip=0}
      skip==0 {print}' $RAW_SQL > $FILTERED_SQL
 
 echo "[완료] 필터링된 SQL → $FILTERED_SQL"
-
-
-echo "[적용] binlog_filtered.sql → ${DB_NAME}"
-mysql -u root -p"${MYSQL_PWD}" ${DB_NAME} < <(
-  grep -v "CREATE TABLE" binlog_filtered.sql
-)

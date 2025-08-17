@@ -32,7 +32,6 @@
 
 1. 테스트 환경에서 디렉토리로 이동:
    ```bash
-   cd 111_binlog_recovery
-   chmod +x analyze_with_ptqd.sh run_all.sh
-
+   cd 11_binlog_recovery
+   chmod +x 02_generate_binlog.sh 04_extract_binlog.sh  05_apply_binlog.sh  run_all.sh
 

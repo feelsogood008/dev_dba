@@ -18,7 +18,7 @@ mysqlbinlog \
   --verbose \
   $BINLOG_FILE > $RAW_SQL
 
-echo "[2] DELETE / UPDATE 필터링"
+echo "[2] DELETE / UPDATE / CREATE TABLE 필터링"
 awk 'BEGIN{skip=0}
      /DELETE /{skip=1}
      /UPDATE /{skip=1}

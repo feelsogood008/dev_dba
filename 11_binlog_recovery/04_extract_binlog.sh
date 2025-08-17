@@ -22,7 +22,14 @@ echo "[2] DELETE / UPDATE 필터링"
 awk 'BEGIN{skip=0}
      /DELETE /{skip=1}
      /UPDATE /{skip=1}
+     /CREATE TABLE/{skip=1}
      /^# at/{skip=0}
      skip==0 {print}' $RAW_SQL > $FILTERED_SQL
 
 echo "[완료] 필터링된 SQL → $FILTERED_SQL"
+
+
+echo "[적용] binlog_filtered.sql → ${DB_NAME}"
+mysql -u root -p"${MYSQL_PWD}" ${DB_NAME} < <(
+  grep -v "CREATE TABLE" binlog_filtered.sql
+)

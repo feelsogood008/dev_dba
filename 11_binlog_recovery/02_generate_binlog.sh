@@ -16,7 +16,7 @@ mysqldump -u $MYSQL_USER -p$MYSQL_PWD \
   > $BACKUP_FILE
 
 echo "풀백업 생성 완료: $BACKUP_FILE"
-
+date "+%Y-%m-%d %H:%M:%S"
 
 echo "[3] binlog 생성용 업데이트 실행"
 mysql -u$MYSQL_USER -p$MYSQL_PWD demo_db -e "UPDATE customers SET email = CONCAT(email, '.kr') WHERE id <= 50;"

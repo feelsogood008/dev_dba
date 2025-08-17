@@ -32,4 +32,5 @@ mysql -u$MYSQL_USER -p$MYSQL_PWD demo_db -e "UPDATE customers SET email = CONCAT
 echo "업데이트 후 1분간 대기....."
 sleep 60
 
-
+echo "업데이트 후 시간"
+date "+%Y-%m-%d %H:%M:%S"

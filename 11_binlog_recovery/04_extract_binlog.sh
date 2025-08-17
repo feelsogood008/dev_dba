@@ -20,7 +20,8 @@ mysqlbinlog \
 
 echo "[2] DELETE 필터링"
 awk 'BEGIN{skip=0}
-     /DELETE /{skip=1}    
+     /DELETE /{skip=1}
+     /CREATE TABLE/{skip=1}     
      /^# at/{skip=0}
      skip==0 {print}' $RAW_SQL > $FILTERED_SQL
 

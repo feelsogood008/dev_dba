@@ -7,3 +7,5 @@ DELETE FROM customers WHERE id <= 30;
 
 SELECT '삭제 후 데이터 개수' AS step, COUNT(*) AS total_rows, SYSDATE() AS '현재시간'
 FROM customers;
+
+SELECT * FROM customers ORDER BY id LIMIT 10;

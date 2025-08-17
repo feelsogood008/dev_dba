@@ -1,0 +1,21 @@
+MYSQL_USER="root"
+MYSQL_PWD="P@ssw0rd"
+
+[1] 테이블 생성과 초기 데이터 입력
+$ ./02_generate_binlog.sh
+
+[2] DELETE 사고 상황 시뮬레이션
+$ mysql -u$MYSQL_USER -p$MYSQL_PWD < 03_accidental_delete.sql 
+
+[3] binlog 추출 + DELETE 필터링
+$ ./04_extract_binlog.sh
+
+[4] 필터링된 binlog 적용
+$ ./05_apply_binlog.sh
+
+[5] 복구 후 데이터 확인
+$ mysql -u$MYSQL_USER -p$MYSQL_PWD < 06_verify_recovery.sql
+
+[6] 사용 리소스 삭제
+$ mysql -u$MYSQL_USER -p$MYSQL_PWD < 07_cleanup.sql
+

@@ -24,6 +24,6 @@ echo "[풀백업 적용] full_backup_xxxx.sql → ${DB_NAME}"
 mysql -u$MYSQL_USER -p"$MYSQL_PWD" $DB_NAME < $FULLBACKUP_FILE_NAME
 
 
-echo "[적용] $FILTERED_SQL → $DB_NAME"
+echo "[삭제 전까지 적용] $FILTERED_SQL → $DB_NAME"
 mysql -u$MYSQL_USER -p$MYSQL_PWD $DB_NAME < $FILTERED_SQL
 echo "[완료] binlog 적용 완료"

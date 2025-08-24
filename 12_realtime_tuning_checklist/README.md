@@ -21,13 +21,14 @@
 ---
 
 
-# 🛠️ 실행 방법
+## 🛠️ 실행 방법
 
 1. 테스트 환경에서 디렉토리로 이동:
 
    ```bash
    cd 12_realtime_tuning_checklist
    chmod +x a00_prepare_sysbench.sh 01_generate_load.sh 05_check_slow_queries.sh run_all.sh
+
 
 
 

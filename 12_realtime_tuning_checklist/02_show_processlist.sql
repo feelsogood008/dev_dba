@@ -1,1 +1,1 @@
-02_show_processlist.sql
+SHOW FULL PROCESSLIST;

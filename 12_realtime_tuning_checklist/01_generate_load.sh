@@ -3,8 +3,8 @@
 sysbench \
   --db-driver=mysql \
   --mysql-user=root \
-  --mysql-password=P@ssword \
-  --mysql-db=test \
+  --mysql-password=P@ssw0rd \
+  --mysql-db=demo_db \
   --table-size=1000000 \
   --threads=50 \
   --time=60 \

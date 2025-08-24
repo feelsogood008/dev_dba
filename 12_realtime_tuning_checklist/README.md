@@ -27,7 +27,9 @@
 
    ```bash
    cd 12_realtime_tuning_checklist
-   chmod +x 00_prepare_sysbench.sh 01_generate_load.sh check_slow_queries.sh run_all.sh
+   cd 12_realtime_tuning_checklist
+chmod +x 00_prepare_sysbench.sh 01_generate_load.sh check_slow_queries.sh run_all.sh
+
 
 
 

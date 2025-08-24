@@ -17,7 +17,4 @@ mysql -u$MYSQL_USER -p$MYSQL_PWD < 03_check_locks.sql
 echo "[4] InnoDB 상태 확인"
 mysql -u$MYSQL_USER -p$MYSQL_PWD < 04_check_innodb_status.sql
 
-echo "[5] Slow Query 실시간 확인"
-./05_check_slow_queries.sh &
-
 wait $LOAD_PID

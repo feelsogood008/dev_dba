@@ -1,0 +1,27 @@
+
+#!/usr/bin/env bash
+set -euo pipefail
+
+MYSQL="mysql -u root -pP@ssword"
+
+echo "[1] 스키마/테이블/유틸 생성"
+$MYSQL < 01_create_log_tables.sql
+
+echo "[2] 대량 로그 적재 (약 50만 건 x 2)"
+$MYSQL < 02_insert_logs.sql
+
+echo "[3] 프루닝 효과/실행계획 비교"
+$MYSQL < 03_run_queries.sql
+
+echo "[4] 보존 정책 자동화 이벤트 생성"
+$MYSQL < 04_create_retention_event.sql
+
+echo "[5] 아카이브 예시(비파티션 테이블 기준)"
+$MYSQL < 05_archive_old_logs.sql
+
+echo "[6] 하우스키핑 점검 쿼리"
+$MYSQL < 06_housekeeping_checks.sql
+
+echo "완료. 필요 시 [정리] 실행: $MYSQL < 07_cleanup.sql"
+
+

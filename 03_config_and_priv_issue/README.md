@@ -1,6 +1,6 @@
 # 3장) 테이블과 데이터만 보면 안 되는 이유: 설정과 권한의 중요성
 
-## 실습 목적
+## 📌 실습 목적
 
 - 신규 객체 접근 시 권한 부족 오류 발생 재현
 - `SHOW GRANTS` 및 `INFORMATION_SCHEMA`를 통한 권한 확인
@@ -8,7 +8,7 @@
 
 ---
 
-## 구성 파일
+## 📂 구성 파일
 
 | 파일명                            | 설명 |
 |---------------------------------|------|
@@ -22,7 +22,7 @@
 
 ---
 
-## 실행 방법
+## 🛠️ 실행 방법
 - 만일 -bash: ./run_all.sh: /bin/bash^M: bad interpreter: No such file or directory 에러가 발생한다면
 - dos2unix 설치 후 줄바꿈을 LF 로 변환
   
@@ -32,3 +32,4 @@ dos2unix run_all.sh
 
 chmod +x run_all.sh
 ./run_all.sh
+

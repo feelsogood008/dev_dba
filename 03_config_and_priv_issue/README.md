@@ -23,8 +23,10 @@
 ---
 
 ## 🛠️ 실행 방법
-- 만일 -bash: ./run_all.sh: /bin/bash^M: bad interpreter: No such file or directory 에러가 발생한다면
-- dos2unix 설치 후 줄바꿈을 LF 로 변환
+- 만일 다음과 같은 에러가 발생한다면
+- -bash: ./run_all.sh: /bin/bash^M: bad interpreter: No such file or directory 에러가 발생한다면
+- -bash: ./run_all.sh: /bin/bash^M: bad interpreter: No such file or directory
+- dos2unix 설치 후 아래의 명령어를 이용해서 줄바꿈을 LF 로 변환하면 된다.
   
 ```bash
 sudo apt-get install dos2unix
@@ -32,4 +34,5 @@ dos2unix run_all.sh
 
 chmod +x run_all.sh
 ./run_all.sh
+
 

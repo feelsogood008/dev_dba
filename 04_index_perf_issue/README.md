@@ -1,7 +1,7 @@
 # 4장 쿼리가 갑자기 느려졌다 – 인덱스 재검토
 
 
-## 실습 목적
+## 📌 실습 목적
 인덱스 유무에 따른 쿼리 성능 차이를 실습합니다.
 - 테이블: board_posts
 - 시나리오: category_id와 created_at을 기준으로 특정 카테고리의 최근 게시글을 조회하는 쿼리를 성능 비교
@@ -9,7 +9,7 @@
 
 ---
 
-## 구성 파일
+## 📂 구성 파일
 
 | 파일명                          | 설명 |
 |---------------------------------|------|
@@ -23,7 +23,7 @@
 ---
 
 
-## 실행 방법
+## 🛠️ 실행 방법
 - 만일 -bash: ./run_all.sh: /bin/bash^M: bad interpreter: No such file or directory 에러가 발생한다면
 - dos2unix 설치 후 줄바꿈을 LF 로 변환
   
@@ -33,3 +33,4 @@ dos2unix run_all.sh
 
 chmod +x run_all.sh
 ./run_all.sh
+

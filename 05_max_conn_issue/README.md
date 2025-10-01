@@ -4,7 +4,7 @@
 
 - MySQL에서 `max_connections` 제한이 어떻게 동작하는지 실습을 통해 이해한다.
 - 과도한 동시 접속 시 발생하는 오류 상황을 Python 스크립트로 재현한다.
-- `max_connections` 값을 동적으로 조정해보고, 커넥션 풀(Pooling) 기법을 적용하여 접속 효율을 개선한다.
+- `max_connections` 값을 동적으로 조정해보고 프로그램 소스에서는 커넥션 풀(Pooling)기법을 적용하여 접속 효율을 개선한다.
 - 단순한 연결 시도와 커넥션 풀 방식의 차이를 실습을 통해 직접 확인한다.
 
 ---
@@ -43,5 +43,6 @@ python3 check_connections.py
 3. run_all.sh 실행
 chmod +x run_all.sh
 ./run_all.sh
+
 
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# 3장 실습: 권한 및 설정 누락 문제 재현 자동 실행 스크립트
+# 전체 실습 SQL을 순차적으로 실행하는 쉘 스크립트
 
 MYSQL_CMD="mysql -u root -pP@ssw0rd"
 
@@ -23,4 +23,5 @@ mysql -u svc_api -p'P@ssw0rd' demo_db < 04_access_test_as_user.sql
 
 echo "[6단계] 정리"
 $MYSQL_CMD < 06_cleanup.sql
+
 

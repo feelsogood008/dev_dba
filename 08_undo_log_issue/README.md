@@ -1,7 +1,7 @@
-# 08_undo_log_issue
+# 8장) DELETE가 끝나지 않는다 – InnoDB와 undo log 이해
 
 
-## ✅ 실습 목적
+## 📌 실습 목적
 
 InnoDB 환경에서 `DELETE` 문이 비정상적으로 오래 걸리는 현상을 재현한다.  
 undo log가 비정상적으로 누적될 경우, 트랜잭션 지연 및 디스크 공간 이슈가 발생할 수 있음을 체험한다.  
@@ -45,6 +45,7 @@ chmod +x run_all.sh
 2. check_undo_log_loop.sh 실행
 chmod +x check_undo_log_loop.sh
 ./check_undo_log_loop.sh
+
 
 
 

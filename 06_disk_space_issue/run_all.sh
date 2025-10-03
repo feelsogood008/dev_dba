@@ -16,7 +16,7 @@ echo "[4단계] logs_archive 테이블 덤프 후 압축 저장"
 bash 04_export_and_compress.sh
 
 echo "[5단계] 오래된 바이너리 로그 삭제"
-$MYSQL_CMDb < 05_purge_binlogs.sql
+$MYSQL_CMD < 05_purge_binlogs.sql
 
 echo "[6단계] 정리 (테이블 및 자원 제거)"
 $MYSQL_CMD < 06_cleanup.sql

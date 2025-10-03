@@ -1,8 +1,8 @@
-# 07_auto_increment_reset
+# 7장) Auto_increment가 갑자기 초기화된 이유
 
 ## 📌 실습 목적
-테이블의 auto_increment 값이 예상치 못하게 초기화되는 원인을 재현하고 이해하는 것이 목적입니다.  
-특히 `TRUNCATE`, `DELETE` 사용 시 auto_increment가 어떻게 동작하는지를 실습을 통해 확인할 수 있습니다.
+테이블의 auto_increment 값이 예상치 못하게 초기화되는 원인을 재현하고 이해하는 것이 목적이다.
+특히 `TRUNCATE`, `DELETE` 사용 시 auto_increment가 어떻게 동작하는지를 실습을 통해 확인할 수 있다.
 
 
 ---
@@ -35,4 +35,5 @@ dos2unix run_all.sh
 1. run_all.sh 실행
 chmod +x run_all.sh
 ./run_all.sh
+
 

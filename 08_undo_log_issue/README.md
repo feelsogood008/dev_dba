@@ -45,8 +45,3 @@ chmod +x run_all.sh
 2. check_undo_log_loop.sh 실행
 chmod +x check_undo_log_loop.sh
 ./check_undo_log_loop.sh
-
-
-
-
-

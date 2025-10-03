@@ -29,10 +29,11 @@
   
 ```bash
 sudo apt-get install dos2unix
-dos2unix run_all.sh
+dos2unix run_all.sh 
 
 1. run_all.sh 실행
-chmod +x run_all.sh
+chmod +x run_all.sh 02_check_disk_usage.sh 04_export_and_compress.sh
 ./run_all.sh
     
+
 

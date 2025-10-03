@@ -1,4 +1,4 @@
-# 06장 - 디스크 용량이 부족하다 : 테이블/로그/덤프 관리
+# 06장) 디스크 용량이 부족하다 : 테이블/로그/덤프 관리
 
 
 
@@ -35,5 +35,6 @@ dos2unix run_all.sh
 chmod +x run_all.sh 02_check_disk_usage.sh 04_export_and_compress.sh
 ./run_all.sh
     
+
 
 

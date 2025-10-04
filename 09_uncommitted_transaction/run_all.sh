@@ -1,6 +1,6 @@
 #!/bin/bash
 # run_all.sh - 전체 실습 진행 스크립트
-# 안내: 비밀번호 입력을 자동화하려면 ~/.my.cnf 설정을 권장
+
 
 MYSQL_CMD="mysql -u root -pP@ssw0rd"
 

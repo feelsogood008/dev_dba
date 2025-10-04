@@ -1,4 +1,4 @@
-# 12장) 실수로 데이터를 지웠다 – 백업과 binlog를 활용한 복원 전략
+# 12장) 트래픽이 몰리면 쿼리가 터진다 – 실시간 튜닝 체크리스트
 
 ## 📌 실습 목적
 - sysbench를 이용해 MySQL에 대량 부하를 발생시킨다.
@@ -34,14 +34,6 @@
 1. 테스트 환경에서 디렉토리로 이동:
 
 ```bash
-cd 12_realtime_tuning_checklist
 chmod +x 00_prepare_sysbench.sh 01_generate_load.sh check_slow_queries.sh run_all.sh
-
-
-
-
-
-
-
 
 

@@ -32,4 +32,18 @@
  chmod +x analyze_with_ptqd.sh run_all.sh
  ./run_all.sh
 
+## ⚙️ Ubuntu에서 pt-query-digest 설치 방법
+
+`pt-query-digest`는 Percona Toolkit에 포함되어 있다. Ubuntu에서는 아래 절차로 설치할 수 있으며
+mysql 버전이나 설치 옵션에 따라서는 이미 설치가 되어 있을 수 있으니 터미널에서 
+pt-query-digest --version 명령을 먼저 실행해서 확인하면 된다.
+
+1. 패키지 업데이트
+sudo apt update
+
+2. Percona Toolkit 설치
+sudo apt install percona-toolkit -y
+
+3. 설치 확인
+pt-query-digest --version
 

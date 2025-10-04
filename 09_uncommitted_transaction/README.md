@@ -1,7 +1,7 @@
 # 09_uncommitted_transaction - 트랜잭션 미커밋 상황 실습
 
 
-## ✅ 실습 목적
+## 📌 실습 목적
 
 - 트랜잭션을 시작하고 COMMIT 하지 않은 상태에서 다른 세션의 데이터 조회 결과가 달라지는 현상을 재현한다.
 - information_schema를 활용해 미커밋(또는 장시간 열린) 트랜잭션을 탐지하는 방법을 익힌다.
@@ -40,6 +40,7 @@ dos2unix run_all.sh
   chmod +x cleanup_kill.sh run_all.sh
   ./run_all.sh
   ./cleanup_kill.sh 
+
 
 
 

@@ -12,6 +12,7 @@
 |--------|------|
 | 01_enable_slow_log.sql | slow query log 설정 |
 | 02_generate_slow_queries.sql | 테스트용 느린 쿼리 생성 |
+| 02_generate_slow_queries2.sql | 테스트용 느린 쿼리 생성 |
 | 03_cleanup.sql | 리소스 정리,slow query log 비활성화 |
 | analyze_with_ptqd.sh | pt-query-digest로 분석 |
 | run_all.sh | 전체 실행 스크립트 |
@@ -27,3 +28,4 @@
 1. 스크립트 파일 실행
  chmod +x analyze_with_ptqd.sh run_all.sh
  ./run_all.sh
+

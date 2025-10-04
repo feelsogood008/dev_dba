@@ -17,20 +17,7 @@
 | analyze_with_ptqd.sh | pt-query-digest로 분석 |
 | run_all.sh | 전체 실행 스크립트 |
 
-
 ---
-
-
-## 🛠️ 실행 방법
-
-- 만일 -bash: ./run_all.sh: /bin/bash^M: bad interpreter: No such file or directory 에러가 발생한다면
-- dos2unix 설치 후 줄바꿈을 LF 로 변환
-  
-```bash
-
-1. 스크립트 파일 실행
- chmod +x analyze_with_ptqd.sh run_all.sh
- ./run_all.sh
 
 ## ⚙️ Ubuntu에서 pt-query-digest 설치 방법
 
@@ -46,4 +33,21 @@ sudo apt install percona-toolkit -y
 
 3. 설치 확인
 pt-query-digest --version
+
+
+---
+
+
+## 🛠️ 실행 방법
+
+- 만일 -bash: ./run_all.sh: /bin/bash^M: bad interpreter: No such file or directory 에러가 발생한다면
+- dos2unix 설치 후 줄바꿈을 LF 로 변환
+  
+```bash
+
+1. 스크립트 파일 실행
+ chmod +x analyze_with_ptqd.sh run_all.sh
+ ./run_all.sh
+
+
 

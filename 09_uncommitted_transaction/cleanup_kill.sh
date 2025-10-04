@@ -7,7 +7,7 @@ MYSQL_USER="root"
 # MYSQL_PWD 환경변수 사용시 주의
 MYSQL_OPTS="-u${MYSQL_USER} -pP@ssw0rd"
 
-echo "[INFO] 열린 트랜잭션의 쓰레드 ID를 조회합니다..."
+echo "[INFO] 열린 트랜잭션의 쓰레드 ID를 조회..."
 THREADS=$(mysql ${MYSQL_OPTS} -N -e "SELECT trx_mysql_thread_id FROM information_schema.innodb_trx WHERE trx_mysql_thread_id IS NOT NULL;")
 
 if [ -z "$THREADS" ]; then

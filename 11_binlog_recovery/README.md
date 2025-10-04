@@ -30,11 +30,11 @@
 
 ## 🛠️ 실행 방법
 
-1. 테스트 환경에서 디렉토리로 이동:
+1. 스크립트 파일 실행 권한 설정
    ```bash
-   cd 11_binlog_recovery
    chmod +x 02_generate_binlog.sh 04_extract_binlog.sh  05_apply_binlog.sh
 
 2. run_step.txt 파일의 내용대로 진행한다.
+
 
 

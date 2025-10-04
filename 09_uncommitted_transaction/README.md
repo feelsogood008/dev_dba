@@ -1,4 +1,4 @@
-# 09_uncommitted_transaction - 트랜잭션 미커밋 상황 실습
+# 9장) 쿼리는 도는 것 같은데 결과가 없다 – 트랜잭션 미커밋 상황
 
 
 ## 📌 실습 목적
@@ -40,6 +40,7 @@ dos2unix run_all.sh
   chmod +x cleanup_kill.sh run_all.sh
   ./run_all.sh
   ./cleanup_kill.sh 
+
 
 
 

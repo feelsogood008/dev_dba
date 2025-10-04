@@ -35,4 +35,6 @@
    cd 11_binlog_recovery
    chmod +x 02_generate_binlog.sh 04_extract_binlog.sh  05_apply_binlog.sh
 
+2. run_step.txt 파일의 내용대로 진행한다.
+
 

@@ -36,12 +36,13 @@
 sudo apt-get install dos2unix
 dos2unix run_all.sh
 
-1. 스크립트 파일 실행 : 
+1. 스크립트 파일 실행
   chmod +x cleanup_kill.sh run_all.sh
   ./run_all.sh
 
 2. 별도 세션에서 수행한다
   ./cleanup_kill.sh 
+
 
 
 

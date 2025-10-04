@@ -31,9 +31,10 @@
 
 ## 🛠️ 실행 방법
 
-1. 테스트 환경에서 디렉토리로 이동:
+1. 스크립트 파일 실행 권한 설정
 
 ```bash
 chmod +x 00_prepare_sysbench.sh 01_generate_load.sh check_slow_queries.sh run_all.sh
+
 
 

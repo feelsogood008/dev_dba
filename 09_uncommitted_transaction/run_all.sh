@@ -26,13 +26,13 @@ $MYSQL_CMD < 04_detect_uncommitted.sql
 
 echo
 echo "===== 다음 단계 안내 ====="
-echo "위에서 미커밋 트랜잭션이 보였다면, 이제 두 가지 중 하나를 선택한다:"
+echo "위에서 미커밋 트랜잭션이 보였다면, 이제 두 가지 중 하나를 선택한다"
 echo "  A) 트랜잭션을 강제 종료(ROLLBACK)하려면 cleanup_kill.sh 를 실행"
 echo "     -> ./cleanup_kill.sh  (비밀번호 입력 필요)"
 echo "  B) 트랜잭션이 끝나기를 기다리거나, 백그라운드 클라이언트를 수동으로 확인/종료"
 echo
-echo "실습을 마치고 DB를 삭제하려면 05_cleanup.sql을 실행한다.:"
+echo "실습을 마치고 DB를 삭제하려면 05_cleanup.sql을 실행한다."
 echo "mysql -u root -p < 05_cleanup.sql"
 
 echo
-echo "run_all.sh 종료 (미커밋 트랜잭션은 백그라운드에서 SLEEP 중일 수 있음)."
+echo "run_all.sh 종료"

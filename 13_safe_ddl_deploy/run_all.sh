@@ -1,5 +1,5 @@
 #!/bin/bash
-MYSQL_CMD="mysql -u root -pP@ssword"
+MYSQL_CMD="mysql -u root -pP@ssw0rd"
 
 echo "[1단계] 테스트 테이블 생성"
 $MYSQL_CMD < 01_create_tables_insert_data.sql

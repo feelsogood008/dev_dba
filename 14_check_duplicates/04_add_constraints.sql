@@ -4,3 +4,5 @@ USE demo_db;
 ALTER TABLE customers
 ADD CONSTRAINT uq_customers_email UNIQUE (email);
 
+
+INSERT INTO customers (name, email, phone) VALUES('Alice', 'alice@example.com', '010-1111-2222');

@@ -9,7 +9,9 @@ ALTER TABLE orders2
   ADD INDEX idx_delivery_status(delivery_status),
   ADD INDEX idx_customer_status(customer_id, status);
 
+
 ANALYZE TABLE orders2;
+
 
 -- [문제 상황 1] : 주문 조회시 order_date + status 조합 사용
 EXPLAIN SELECT id, customer_id, order_date, status
@@ -34,6 +36,7 @@ LIMIT 10;
 
 -- 각 쿼리마다 필요한 인덱스가 다르므로 인덱스가 난잡하게 늘어남
 -- 인덱스 수가 많아지면 INSERT/UPDATE/DELETE 시 불필요한 인덱스 갱신 비용 증가
+
 
 
 

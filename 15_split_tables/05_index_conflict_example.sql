@@ -28,5 +28,6 @@ WHERE delivery_status = 'preparing'
 ORDER BY shipping_date DESC
 LIMIT 10;
 
--- ⚠ 각 쿼리마다 필요한 인덱스가 다르므로 인덱스가 난잡하게 늘어남
+-- 각 쿼리마다 필요한 인덱스가 다르므로 인덱스가 난잡하게 늘어남
 -- 인덱스 수가 많아지면 INSERT/UPDATE/DELETE 시 불필요한 인덱스 갱신 비용 증가
+

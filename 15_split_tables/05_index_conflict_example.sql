@@ -1,5 +1,7 @@
 USE demo_db;
 
+
+
 -- God Table의 인덱스 난잡 예시
 ALTER TABLE orders2
   ADD INDEX idx_order_date(order_date),
@@ -32,6 +34,7 @@ LIMIT 10;
 
 -- 각 쿼리마다 필요한 인덱스가 다르므로 인덱스가 난잡하게 늘어남
 -- 인덱스 수가 많아지면 INSERT/UPDATE/DELETE 시 불필요한 인덱스 갱신 비용 증가
+
 
 
 

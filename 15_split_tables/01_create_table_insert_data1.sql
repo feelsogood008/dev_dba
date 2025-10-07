@@ -7,7 +7,8 @@ USE demo_db;
 
 DROP TABLE IF EXISTS orders;
 
-
+-- 주문 기본 테이블인데 모든 정보를 한 테이블에 담아두는 형태이다. 
+-- 설계관점에서는 올바른 정규화의 형태가 아닐 가능성이 크다.
 CREATE TABLE orders (
   id           BIGINT AUTO_INCREMENT PRIMARY KEY,
   customer_id  INT NOT NULL,
@@ -48,6 +49,7 @@ VALUES
  NULL, NULL, NULL,
  NULL, NULL, NULL,
  NOW(), 50.00, '고객 변심', '취소 처리됨');
+
 
 
 

@@ -1,5 +1,5 @@
 
-CREATE DATABASE IF NOT EXISTS demo_db;
+CREATE DATABASE IF NOT EXISTS demo_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 
 USE demo_db;
@@ -49,6 +49,7 @@ VALUES
  NULL, NULL, NULL,
  NULL, NULL, NULL,
  NOW(), 50.00, '고객 변심', '취소 처리됨');
+
 
 
 

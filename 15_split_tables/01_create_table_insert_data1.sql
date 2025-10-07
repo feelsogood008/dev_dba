@@ -43,12 +43,13 @@ INSERT INTO orders
 VALUES
 (1, NOW(), 100.00, 'ordered',
  'card', NOW(), 'paid',
- 'Seoul', NULL, 'preparing',
+ 'Seoul', NULL, 'PREPARING',
  NULL, NULL, NULL, '첫 주문'),
-(2, NOW(), 50.00, 'cancelled',
+(2, NOW(), 50.00, 'CANCEL_REQUESTED',
  NULL, NULL, NULL,
  NULL, NULL, NULL,
  NOW(), 50.00, '고객 변심', '취소 처리됨');
+
 
 
 

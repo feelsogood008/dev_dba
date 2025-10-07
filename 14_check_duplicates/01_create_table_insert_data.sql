@@ -1,6 +1,5 @@
 
-CREATE DATABASE IF NOT EXISTS demo_db;
-
+CREATE DATABASE IF NOT EXISTS demo_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 USE demo_db;
 
@@ -26,6 +25,7 @@ INSERT INTO customers (name, email, phone) VALUES
 ('Alice', 'alice@example.com', '010-1111-2222'),
 ('Bob', 'bob@example.com', '010-3333-4444'),
 ('Alice', 'alice@example.com', '010-1111-2222');
+
 
 
 

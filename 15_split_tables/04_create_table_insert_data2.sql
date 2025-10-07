@@ -23,7 +23,7 @@ CREATE TABLE orders2 (
 
 
 
--- 1만건 샘플 데이터 입력
+-- 샘플 데이터 입력
 INSERT INTO orders2
 (customer_id, order_date, total_amount, status,
  payment_method, payment_date, payment_status,
@@ -46,5 +46,6 @@ FROM
    UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10) t2,
   (SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5
    UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10) t3;
+
 
 

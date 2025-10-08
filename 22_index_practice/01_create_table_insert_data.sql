@@ -43,14 +43,27 @@ FROM (
 ) t;
 
 -- 주문 100만 건 삽입
+-- truncate table orders
+SET @@SESSION.cte_max_recursion_depth = 2000000;
+
 INSERT INTO orders (customer_id, product_id, amount, status)
+WITH RECURSIVE seq AS (
+  SELECT 1 AS n
+  UNION ALL
+  SELECT n + 1 FROM seq WHERE n < 1000000
+)
 SELECT 
-    FLOOR(RAND() * 100000) + 1,    -- 랜덤 고객 ID
-    FLOOR(RAND() * 1000) + 1,      -- 랜덤 상품
-    ROUND(RAND() * 100, 2),        -- 주문 금액
-    ELT(FLOOR(RAND()*3)+1, 'NEW', 'PAID', 'CANCEL') -- 상태
-FROM (
-    SELECT @rownum := @rownum + 1 AS n
-    FROM information_schema.tables a, information_schema.tables b, (SELECT @rownum := 0) r
-    LIMIT 1000000
-) t;
+    FLOOR(RAND() * 100000) + 1 AS customer_id,    -- 랜덤 고객 ID
+    FLOOR(RAND() * 1000) + 1 AS product_id,       -- 랜덤 상품 ID
+    ROUND(RAND() * 100, 2) AS order_amount,       -- 주문 금액
+    ELT(FLOOR(RAND()*3)+1, 'NEW', 'PAID', 'CANCEL') AS status  -- 상태
+FROM seq;
+
+
+SELECT COUNT(*) FROM customers;
+SELECT COUNT(*) FROM orders;
+
+ANALYZE TABLE customers;
+ANALYZE TABLE orders;
+
+

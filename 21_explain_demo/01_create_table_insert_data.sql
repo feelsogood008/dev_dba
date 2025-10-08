@@ -103,4 +103,8 @@ COMMIT;
 SELECT status, COUNT(*) FROM customers GROUP BY status;
 SELECT status, COUNT(*) FROM orders GROUP BY status;
 
+ANALYZE TABLE orders;
+ANALYZE TABLE customers;
+
+
 

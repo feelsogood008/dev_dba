@@ -1,8 +1,7 @@
 
-
 USE demo_db;
 
-
+SET PROFILING = 1;
 
 -- SELECT 성능 비교
 EXPLAIN SELECT * FROM orders WHERE customer_id = 12345 ORDER BY created_at DESC LIMIT 10;
@@ -28,4 +27,5 @@ FROM (
 
 
 SHOW PROFILES;
+
 

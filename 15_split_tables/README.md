@@ -22,9 +22,11 @@
 | 05_index_conflict_example.sql | 인덱스 난잡 예시 |
 | 06_lock_contention_example.sql | 잠금 경합 예시 |
 | 07_cleanup.sql | 리소스 정리 |
+| lock_monitor.sh | 락모니터 |
 
 
 
 ---
+
 
 

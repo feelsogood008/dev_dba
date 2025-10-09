@@ -17,11 +17,19 @@ CREATE TABLE orders (
 
 -- 100만 건 데이터 삽입 (랜덤)
 INSERT INTO orders (customer_id, order_date, amount)
-SELECT FLOOR(1 + RAND()*10000),
-       CURDATE() - INTERVAL (RAND()*365) DAY,
-       RAND()*1000
-FROM information_schema.tables t1,
-     information_schema.tables t2
-LIMIT 1000000;
+WITH RECURSIVE seq AS (
+  SELECT 1 AS n
+  UNION ALL
+  SELECT n + 1 FROM seq WHERE n < 1000000
+)
+SELECT 
+    FLOOR(RAND() * 100000) + 1 AS customer_id,    -- 랜덤 고객 ID
+    CURDATE() - INTERVAL (RAND()*365) DAY,       -- 랜덤 일자
+    ROUND(RAND() * 100, 2) AS order_amount       -- 주문 금액
+FROM seq;
 
+
+SELECT COUNT(*) FROM orders;
+
+ANALYZE TABLE orders;
 

@@ -1,15 +1,9 @@
 
 CREATE DATABASE IF NOT EXISTS demo_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-
 USE demo_db;
 
-
--- 1) 분리된 스키마
-CREATE SCHEMA IF NOT EXISTS logs;
-USE logs;
-
--- 2) 비교용: 비파티션 로그 테이블(문제 유발용)
+-- 1) 비교용: 비파티션 로그 테이블(문제 유발용)
 DROP TABLE IF EXISTS log_events_raw;
 CREATE TABLE log_events_raw (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -21,9 +15,9 @@ CREATE TABLE log_events_raw (
   PRIMARY KEY (id),
   KEY idx_created_at (created_at),
   KEY idx_service_created (service, created_at)
-) ENGINE=InnoDB ROW_FORMAT=DYNAMIC;
+);
 
--- 3) 권장: 월별 파티션 로그 테이블
+-- 2) 권장: 월별 파티션 로그 테이블
 DROP TABLE IF EXISTS log_events_part;
 CREATE TABLE log_events_part (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -46,11 +40,11 @@ PARTITION BY RANGE COLUMNS (created_at) (
   PARTITION p202507 VALUES LESS THAN ('2025-08-01'),
   PARTITION p202508 VALUES LESS THAN ('2025-09-01'),
   PARTITION pMAX    VALUES LESS THAN (MAXVALUE)
-) ENGINE=InnoDB ROW_FORMAT=DYNAMIC;
+);
 
 -- 4) 유틸: 숫자 생성 테이블(빠른 대량 INSERT용)
 DROP TABLE IF EXISTS util_numbers;
-CREATE TABLE util_numbers (n INT NOT NULL PRIMARY KEY AUTO_INCREMENT) ENGINE=InnoDB;
+CREATE TABLE util_numbers (n INT NOT NULL PRIMARY KEY AUTO_INCREMENT);
 
 -- 시드 1개
 INSERT INTO util_numbers VALUES (NULL);
@@ -94,3 +88,4 @@ INSERT INTO util_numbers (n) SELECT NULL FROM util_numbers;
 INSERT INTO util_numbers (n) SELECT NULL FROM util_numbers;
 
 -- 이제 util_numbers에는 약 52만여 행 존재
+

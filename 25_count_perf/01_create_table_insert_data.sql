@@ -1,9 +1,7 @@
 
 CREATE DATABASE IF NOT EXISTS demo_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-
 USE demo_db;
-
 
 
 DROP TABLE IF EXISTS orders;
@@ -35,5 +33,6 @@ FROM seq;
 SELECT COUNT(*) FROM orders;
 
 ANALYZE TABLE orders;
+
 
 

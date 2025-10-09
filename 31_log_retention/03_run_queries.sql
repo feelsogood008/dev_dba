@@ -8,7 +8,7 @@ FROM log_events_raw
 WHERE created_at >= NOW() - INTERVAL 7 DAY;
 
 -- 2) 최근 7일 조회(파티션) - PARTITIONS 열 확인
-EXPLAIN PARTITIONS SELECT COUNT(*) 
+EXPLAIN SELECT COUNT(*) 
 FROM log_events_part
 WHERE created_at >= NOW() - INTERVAL 7 DAY;
 
@@ -18,7 +18,7 @@ FROM log_events_raw
 WHERE created_at >= NOW() - INTERVAL 1 DAY AND level='ERROR'
 GROUP BY service;
 
-EXPLAIN PARTITIONS SELECT service, COUNT(*) 
+EXPLAIN SELECT service, COUNT(*) 
 FROM log_events_part
 WHERE created_at >= NOW() - INTERVAL 1 DAY AND level='ERROR'
 GROUP BY service;
@@ -29,7 +29,8 @@ FROM log_events_raw
 WHERE service='svc_7' AND created_at >= NOW() - INTERVAL 3 DAY
 ORDER BY created_at DESC LIMIT 200;
 
-EXPLAIN PARTITIONS SELECT * 
+EXPLAIN SELECT * 
 FROM log_events_part
 WHERE service='svc_7' AND created_at >= NOW() - INTERVAL 3 DAY
 ORDER BY created_at DESC LIMIT 200;
+

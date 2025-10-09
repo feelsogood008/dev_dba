@@ -2,7 +2,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-MYSQL="mysql -u root -pP@ssword"
+MYSQL="mysql -u root -pP@ssw0rd"
 
 echo "[1] 스키마/테이블/유틸 생성"
 $MYSQL < 01_create_log_tables.sql

@@ -14,21 +14,22 @@ ORDER BY size_mb DESC;
 SELECT partition_name, table_rows, 
        ROUND((data_length+index_length)/1024/1024,2) AS size_mb
 FROM information_schema.partitions
-WHERE table_schema='logs' AND table_name='log_events_part'
+WHERE table_name='log_events_part'
 ORDER BY partition_ordinal_position;
 
 -- 3) 최근 7일 ERROR 카운트
 SELECT DATE(created_at) d, COUNT(*) cnt
-FROM logs.log_events_part
+FROM log_events_part
 WHERE created_at >= NOW() - INTERVAL 7 DAY AND level='ERROR'
 GROUP BY DATE(created_at)
 ORDER BY d DESC;
 
 -- 4) 인덱스 점검
-SHOW INDEX FROM logs.log_events_part;
+SHOW INDEX FROM log_events_part;
 
 -- 5) 이벤트 스케줄러 상태
 SHOW PROCESSLIST;
 SHOW VARIABLES LIKE 'event_scheduler';
 SHOW EVENTS FROM logs;
+
 

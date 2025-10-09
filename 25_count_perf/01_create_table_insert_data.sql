@@ -15,6 +15,9 @@ CREATE TABLE orders (
   INDEX idx_customer (customer_id)
 );
 
+-- truncate table orders
+SET @@SESSION.cte_max_recursion_depth = 2000000;
+
 -- 100만 건 데이터 삽입 (랜덤)
 INSERT INTO orders (customer_id, order_date, amount)
 WITH RECURSIVE seq AS (
@@ -32,4 +35,5 @@ FROM seq;
 SELECT COUNT(*) FROM orders;
 
 ANALYZE TABLE orders;
+
 

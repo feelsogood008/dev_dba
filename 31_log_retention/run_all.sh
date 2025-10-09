@@ -22,6 +22,5 @@ $MYSQL < 05_archive_old_logs.sql
 echo "[6단계] 하우스키핑 점검 쿼리"
 $MYSQL < 06_housekeeping_checks.sql
 
-echo "완료. 필요 시 [정리] 실행: $MYSQL < 07_cleanup.sql"
-
-
+echo "[7단계] 정리"
+$MYSQL < 07_cleanup.sql

@@ -2,7 +2,7 @@
 USE demo_db;
 
 
--- 50만 건 정도를 6개월 분포로 생성
+-- 약 30여만 건 정도를 6개월 분포로 생성
 -- created_at: 최근 240일 범위 분산, level/service 다양화
 INSERT INTO log_events_raw (created_at, level, service, message, ctx)
 SELECT
@@ -29,5 +29,6 @@ WHERE n <= 500000;
 SELECT 'raw_count' AS t, COUNT(*) FROM log_events_raw
 UNION ALL
 SELECT 'part_count', COUNT(*) FROM log_events_part;
+
 
 

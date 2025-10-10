@@ -7,7 +7,7 @@ MYSQL="mysql -u root -pP@ssw0rd"
 echo "[1단계] 스키마/테이블/유틸 생성"
 $MYSQL < 01_create_log_tables.sql
 
-echo "[2단계] 대량 로그 적재 (약 50만 건 x 2)"
+echo "[2단계] 대량 로그 적재"
 $MYSQL < 02_insert_logs.sql
 
 echo "[3단계] 프루닝 효과/실행계획 비교"

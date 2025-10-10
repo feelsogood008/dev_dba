@@ -28,12 +28,13 @@ GROUP BY service;
 EXPLAIN SELECT * 
 FROM log_events_raw
 WHERE service='svc_7' AND created_at >= NOW() - INTERVAL 3 MONTH
-ORDER BY created_at DESC LIMIT 200;
+ORDER BY created_at DESC LIMIT 20000;
 
 EXPLAIN SELECT * 
 FROM log_events_part
 WHERE service='svc_7' AND created_at >= NOW() - INTERVAL 3 MONTH
-ORDER BY created_at DESC LIMIT 200;
+ORDER BY created_at DESC LIMIT 20000;
+
 
 
 

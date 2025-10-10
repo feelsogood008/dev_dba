@@ -27,12 +27,13 @@ GROUP BY service;
 -- 3) 범위+정렬: 최근 3일 특정 서비스
 EXPLAIN SELECT * 
 FROM log_events_raw
-WHERE service='svc_7' AND created_at >= NOW() - INTERVAL 3 DAY
+WHERE service='svc_7' AND created_at >= NOW() - INTERVAL 3 MONTH
 ORDER BY created_at DESC LIMIT 200;
 
 EXPLAIN SELECT * 
 FROM log_events_part
-WHERE service='svc_7' AND created_at >= NOW() - INTERVAL 3 DAY
+WHERE service='svc_7' AND created_at >= NOW() - INTERVAL 3 MONTH
 ORDER BY created_at DESC LIMIT 200;
+
 
 

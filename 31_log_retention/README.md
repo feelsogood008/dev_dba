@@ -15,8 +15,8 @@
 ## 📂 구성 파일
 | 파일명 | 설명 |
 |--------|------|
-| 01_create_log_tables.sql | logs 스키마, 비파티션/월파티션 테이블, util_numbers 생성 |
-| 02_insert_logs.sql | 50만 건 로그를 비파티션/파티션 테이블에 각각 적재 |
+| 01_create_log_tables.sql | 비파티션/월파티션 테이블 생성 |
+| 02_insert_logs.sql | 30여만 건 로그를 비파티션/파티션 테이블에 각각 적재 |
 | 03_run_queries.sql | 최근 N일 조회/집계 쿼리, EXPLAIN PARTITIONS 비교 |
 | 04_create_retention_event.sql | 이벤트 스케줄러로 월 파티션 자동 정리/미리 생성 |
 | 05_archive_old_logs.sql | 오래된 로그를 별도 아카이브 테이블로 이동(예시) |
@@ -33,4 +33,5 @@
 ```bash
 chmod +x run_all.sh
 ./run_all.sh
+
 

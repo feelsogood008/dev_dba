@@ -48,8 +48,18 @@ FROM (
          (SELECT @rownum:=0) r
 ) temp;
 
+
+-- truncate table orders
+SET @@SESSION.cte_max_recursion_depth = 1000000;
+
 -- 메인 테이블 데이터
+-- 100만 건 데이터 삽입 (랜덤)
 INSERT INTO large_table (user_id, category_id, title, status, amount, email, created_at)
+WITH RECURSIVE seq AS (
+  SELECT 1 AS n
+  UNION ALL
+  SELECT n + 1 FROM seq WHERE n < 1000000
+)    
 SELECT 
     FLOOR(1 + RAND() * 25),  -- user_id
     FLOOR(1 + RAND() * 20),  -- category_id
@@ -58,15 +68,7 @@ SELECT
     ROUND(RAND() * 500, 2),
     CONCAT('buyer', n, '@mail.com'),
     NOW() - INTERVAL FLOOR(RAND()*365) DAY
-FROM (
-    SELECT @i := @i + 1 AS n
-    FROM (SELECT 0 UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 
-          UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) t1,
-         (SELECT 0 UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 
-          UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) t2,
-         (SELECT @i := 0) r
-) temp
-LIMIT 1000;
+FROM seq;
 
 
 

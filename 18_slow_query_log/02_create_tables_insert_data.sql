@@ -49,6 +49,9 @@ FROM (
 ) temp;
 
 
+-- select count(*) from lt_users; 
+
+
 -- truncate table orders
 SET @@SESSION.cte_max_recursion_depth = 1000000;
 
@@ -70,6 +73,7 @@ SELECT
     NOW() - INTERVAL FLOOR(RAND()*365) DAY
 FROM seq;
 
+-- select count(*) from large_table; 
 
 
 -- =========================================

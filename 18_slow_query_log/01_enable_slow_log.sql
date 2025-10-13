@@ -3,5 +3,6 @@ SET GLOBAL slow_query_log = 'ON';
 SET GLOBAL long_query_time = 1;
 SET GLOBAL log_queries_not_using_indexes = 1;
 
-SHOW VARIABLES LIKE 'slow_query%';
-SHOW VARIABLES LIKE 'long_query_time';
+SHOW GLOBAL VARIABLES LIKE 'slow_query%';
+SHOW GLOBAL VARIABLES LIKE 'long_query_time';
+

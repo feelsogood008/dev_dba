@@ -13,11 +13,12 @@
 ## 📂 구성 파일
 | 파일명  | 설명 |
 |--------|------|
-| 01_enable_slow_log.sql | 슬로우쿼리 로그 활성화 |
-| 02_generate_slow_queries.sql | 느린 쿼리 10개 실행 |
-| 03_analyze_with_mysqldumpslow.sh | mysqldumpslow 분석 |
-| 04_analyze_with_pt_digest.sh | pt-query-digest 분석 |
-| 05_cleanup.sql | 전체 실행 스크립트 |
+| 01_enable_slow_log.sql | 슬로우쿼리 로그 활성화 및 확인 |
+| 02_create_tables_insert_data.sql | 테이블 생성과 데이터 입력 |
+| 03_generate_slow_queries.sql | 다양한 형태의 느린 쿼리 실행 |
+| 04_analyze_with_mysqldumpslow.sh | mysqldumpslow 분석 |
+| 05_analyze_with_pt_digest.sh | pt-query-digest 분석 |
+| 06_cleanup.sql | 테스트 리소스 정리 |
 | run_all.sh | 전체 실행 스크립트 |
 
 
@@ -27,5 +28,6 @@
 ## 🛠️ 실행 방법
 
 ```bash
-chmod +x run_all.sh
+chmod +x run_all.sh 04_analyze_with_mysqldumpslow.sh 05_analyze_with_pt_digest.sh
 ./run_all.sh
+

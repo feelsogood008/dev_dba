@@ -5,9 +5,9 @@ USE demo_db;
 
 -- 1. WHERE + ORDER BY + LIMIT
 SELECT * FROM large_table
- WHERE category_id = 10 AND status='active'
- ORDER BY created_at DESC
- LIMIT 50;
+WHERE category_id = 10 AND status='active'
+ORDER BY created_at DESC
+LIMIT 50;
 
 -- 2. LIKE 검색
 SELECT * FROM large_table WHERE title LIKE '%sale%';
@@ -51,3 +51,4 @@ WHERE status='pending' AND amount BETWEEN 100 AND 200;
 SELECT * FROM large_table 
 ORDER BY created_at DESC 
 LIMIT 50 OFFSET 200000;
+

@@ -1,7 +1,6 @@
 USE demo_db;
 
--- 큰 테이블 생성 (large_table은 50만건 이상)
--- 이미 생성되었다고 가정
+-- slow query 라고 예상되는 쿼리
 
 -- 1. WHERE + ORDER BY + LIMIT
 SELECT * FROM large_table
@@ -51,4 +50,5 @@ WHERE status='pending' AND amount BETWEEN 100 AND 200;
 SELECT * FROM large_table 
 ORDER BY created_at DESC 
 LIMIT 50 OFFSET 200000;
+
 

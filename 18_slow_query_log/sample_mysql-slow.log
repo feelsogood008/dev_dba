@@ -1,0 +1,281 @@
+# Time: 2025-10-14T22:30:01.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 3.502 Lock_time: 0.000 Rows_sent: 1 Rows_examined: 500
+SET timestamp=1697315401;
+SELECT * FROM lt_users WHERE status = 'active' AND created_at > '2025-01-01';
+
+# Time: 2025-10-14T22:31:10.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 7.450 Lock_time: 0.001 Rows_sent: 25 Rows_examined: 1500
+SET timestamp=1697315470;
+SELECT user_id, title, amount FROM large_table WHERE status = 'active' AND created_at < '2025-05-01';
+
+# Time: 2025-10-14T22:32:15.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 4.112 Lock_time: 0.000 Rows_sent: 2 Rows_examined: 600
+SET timestamp=1697315535;
+UPDATE lt_users SET status = 'inactive' WHERE id = 12345;
+
+# Time: 2025-10-14T22:33:22.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 12.334 Lock_time: 0.002 Rows_sent: 12 Rows_examined: 4000
+SET timestamp=1697315602;
+SELECT l.title, l.amount, u.name FROM large_table l JOIN lt_users u ON l.user_id = u.id WHERE l.category_id = 3;
+
+# Time: 2025-10-14T22:34:30.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 5.120 Lock_time: 0.000 Rows_sent: 6 Rows_examined: 2100
+SET timestamp=1697315670;
+DELETE FROM large_table WHERE status = 'disabled' AND created_at < '2024-01-01';
+
+# Time: 2025-10-14T22:35:45.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 6.880 Lock_time: 0.000 Rows_sent: 10 Rows_examined: 900
+SET timestamp=1697315745;
+SELECT email FROM lt_users WHERE status != 'blocked' ORDER BY created_at DESC LIMIT 50;
+
+# Time: 2025-10-14T22:37:05.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 8.454 Lock_time: 0.000 Rows_sent: 4 Rows_examined: 1350
+SET timestamp=1697315825;
+SELECT user_id, SUM(amount) as total_amount FROM large_table WHERE status = 'active' GROUP BY user_id;
+
+# Time: 2025-10-14T22:38:20.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 4.370 Lock_time: 0.000 Rows_sent: 3 Rows_examined: 110
+SET timestamp=1697315900;
+SELECT * FROM lt_users WHERE email LIKE '%@example.com';
+
+# Time: 2025-10-14T22:39:48.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 6.700 Lock_time: 0.000 Rows_sent: 8 Rows_examined: 670
+SET timestamp=1697315988;
+UPDATE large_table SET status = 'pending' WHERE id = 1001;
+
+# Time: 2025-10-14T22:41:00.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 7.891 Lock_time: 0.000 Rows_sent: 9 Rows_examined: 2000
+SET timestamp=1697316060;
+SELECT l.id, l.title, u.name, l.amount FROM large_table l JOIN lt_users u ON l.user_id = u.id WHERE l.status = 'active' ORDER BY created_at DESC LIMIT 100;
+
+# Time: 2025-10-14T22:42:15.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 3.300 Lock_time: 0.000 Rows_sent: 5 Rows_examined: 250
+SET timestamp=1697316135;
+SELECT id, name FROM lt_users WHERE status = 'inactive' LIMIT 10;
+
+# Time: 2025-10-14T22:43:07.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 5.200 Lock_time: 0.000 Rows_sent: 4 Rows_examined: 1200
+SET timestamp=1697316187;
+UPDATE large_table SET amount = amount + 50 WHERE category_id = 2;
+
+# Time: 2025-10-14T22:44:15.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 9.412 Lock_time: 0.001 Rows_sent: 1 Rows_examined: 3000
+SET timestamp=1697316255;
+SELECT * FROM lt_users WHERE name LIKE 'John%';
+
+# Time: 2025-10-14T22:45:20.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 7.890 Lock_time: 0.000 Rows_sent: 20 Rows_examined: 1400
+SET timestamp=1697316320;
+DELETE FROM large_table WHERE status = 'pending' AND amount < 1000;
+
+# Time: 2025-10-14T22:46:30.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 8.750 Lock_time: 0.000 Rows_sent: 6 Rows_examined: 1800
+SET timestamp=1697316390;
+SELECT user_id, status, COUNT(*) FROM large_table GROUP BY user_id, status;
+
+# Time: 2025-10-14T22:47:50.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 3.120 Lock_time: 0.000 Rows_sent: 1 Rows_examined: 100
+SET timestamp=1697316450;
+SELECT name, email FROM lt_users WHERE id = 5000;
+
+# Time: 2025-10-14T22:48:55.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 12.100 Lock_time: 0.000 Rows_sent: 7 Rows_examined: 4000
+SET timestamp=1697316535;
+SELECT DISTINCT status FROM large_table WHERE amount > 100;
+
+# Time: 2025-10-14T22:50:17.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 4.900 Lock_time: 0.000 Rows_sent: 2 Rows_examined: 600
+SET timestamp=1697316617;
+UPDATE lt_users SET email = CONCAT(name, '@example.com') WHERE email IS NULL;
+
+# Time: 2025-10-14T22:51:30.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 6.320 Lock_time: 0.000 Rows_sent: 50 Rows_examined: 2200
+SET timestamp=1697316690;
+SELECT * FROM large_table WHERE category_id IN (1, 2, 4) AND status = 'active';
+
+# Time: 2025-10-14T22:52:48.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 5.755 Lock_time: 0.000 Rows_sent: 3 Rows_examined: 450
+SET timestamp=1697316768;
+DELETE FROM large_table WHERE user_id = 2000 AND status = 'disabled';
+
+# Time: 2025-10-14T22:54:04.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 7.123 Lock_time: 0.000 Rows_sent: 8 Rows_examined: 2000
+SET timestamp=1697316844;
+SELECT l.title, u.name FROM large_table l JOIN lt_users u ON l.user_id = u.id WHERE l.created_at > '2025-01-01';
+
+# Time: 2025-10-14T22:55:25.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 6.789 Lock_time: 0.000 Rows_sent: 25 Rows_examined: 5000
+SET timestamp=1697316925;
+SELECT * FROM lt_users WHERE status = 'active' ORDER BY created_at DESC LIMIT 100;
+
+# Time: 2025-10-14T22:56:40.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 8.914 Lock_time: 0.000 Rows_sent: 1 Rows_examined: 180
+SET timestamp=1697317000;
+UPDATE lt_users SET status = 'blocked' WHERE id = 7890;
+
+# Time: 2025-10-14T22:57:59.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 10.150 Lock_time: 0.000 Rows_sent: 5 Rows_examined: 2500
+SET timestamp=1697317079;
+SELECT user_id, AVG(amount) FROM large_table GROUP BY user_id;
+
+# Time: 2025-10-14T22:59:15.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 5.600 Lock_time: 0.000 Rows_sent: 2 Rows_examined: 150
+SET timestamp=1697317095;
+SELECT * FROM lt_users WHERE id BETWEEN 1000 AND 1100;
+
+# Time: 2025-10-14T23:00:30.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 6.789 Lock_time: 0.000 Rows_sent: 3 Rows_examined: 780
+SET timestamp=1697317200;
+DELETE FROM large_table WHERE created_at < '2023-10-01' AND status != 'active';
+
+# Time: 2025-10-14T23:01:45.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 4.560 Lock_time: 0.000 Rows_sent: 5 Rows_examined: 1300
+SET timestamp=1697317305;
+SELECT name, email FROM lt_users WHERE status = 'inactive';
+
+# Time: 2025-10-14T23:03:00.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 9.210 Lock_time: 0.000 Rows_sent: 10 Rows_examined: 4000
+SET timestamp=1697317380;
+SELECT user_id, title FROM large_table WHERE amount > 500 ORDER BY created_at DESC LIMIT 20;
+
+# Time: 2025-10-14T23:04:15.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 3.120 Lock_time: 0.000 Rows_sent: 2 Rows_examined: 300
+SET timestamp=1697317455;
+UPDATE lt_users SET status = 'active' WHERE id = 9876;
+
+# Time: 2025-10-14T23:05:30.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 7.002 Lock_time: 0.001 Rows_sent: 8 Rows_examined: 2400
+SET timestamp=1697317530;
+SELECT * FROM large_table WHERE status = 'pending' AND category_id = 1;
+
+# Time: 2025-10-14T23:06:45.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 10.500 Lock_time: 0.002 Rows_sent: 3 Rows_examined: 5000
+SET timestamp=1697317605;
+DELETE FROM large_table WHERE amount < 100 AND status = 'disabled';
+
+# Time: 2025-10-14T23:08:00.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 6.430 Lock_time: 0.000 Rows_sent: 15 Rows_examined: 1800
+SET timestamp=1697317680;
+SELECT * FROM lt_users WHERE created_at BETWEEN '2024-01-01' AND '2025-01-01';
+
+# Time: 2025-10-14T23:09:15.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 5.800 Lock_time: 0.000 Rows_sent: 7 Rows_examined: 700
+SET timestamp=1697317755;
+UPDATE large_table SET amount = amount * 1.1 WHERE status = 'active';
+
+# Time: 2025-10-14T23:10:30.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 8.775 Lock_time: 0.000 Rows_sent: 2 Rows_examined: 1500
+SET timestamp=1697317830;
+SELECT DISTINCT category_id FROM large_table WHERE amount > 1000;
+
+# Time: 2025-10-14T23:11:45.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 3.500 Lock_time: 0.001 Rows_sent: 12 Rows_examined: 2500
+SET timestamp=1697317905;
+SELECT l.id, u.name FROM large_table l LEFT JOIN lt_users u ON l.user_id = u.id WHERE l.status = 'active';
+
+# Time: 2025-10-14T23:13:00.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 9.200 Lock_time: 0.000 Rows_sent: 6 Rows_examined: 3200
+SET timestamp=1697317980;
+SELECT * FROM lt_users WHERE email LIKE '%@gmail.com' ORDER BY created_at DESC LIMIT 25;
+
+# Time: 2025-10-14T23:14:15.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 5.500 Lock_time: 0.000 Rows_sent: 7 Rows_examined: 900
+SET timestamp=1697318055;
+UPDATE lt_users SET status = 'blocked' WHERE created_at < '2023-01-01';
+
+# Time: 2025-10-14T23:15:30.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 7.750 Lock_time: 0.000 Rows_sent: 9 Rows_examined: 1900
+SET timestamp=1697318130;
+DELETE FROM large_table WHERE created_at < '2023-06-01' AND status = 'inactive';
+
+# Time: 2025-10-14T23:16:45.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 4.300 Lock_time: 0.000 Rows_sent: 3 Rows_examined: 800
+SET timestamp=1697318205;
+SELECT user_id, COUNT(*) FROM large_table GROUP BY user_id HAVING COUNT(*) > 10;
+
+# Time: 2025-10-14T23:18:00.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 9.900 Lock_time: 0.000 Rows_sent: 1 Rows_examined: 1000
+SET timestamp=1697318280;
+SELECT * FROM lt_users WHERE name = 'Alice';
+
+# Time: 2025-10-14T23:19:15.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 6.400 Lock_time: 0.000 Rows_sent: 4 Rows_examined: 1500
+SET timestamp=1697318355;
+UPDATE large_table SET status = 'active' WHERE id IN (1010, 1020, 1030);
+
+# Time: 2025-10-14T23:20:30.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 5.100 Lock_time: 0.000 Rows_sent: 8 Rows_examined: 1350
+SET timestamp=1697318430;
+SELECT * FROM large_table WHERE user_id = 300 AND status = 'pending';
+
+# Time: 2025-10-14T23:21:45.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 10.350 Lock_time: 0.000 Rows_sent: 5 Rows_examined: 2500
+SET timestamp=1697318505;
+SELECT user_id, MAX(amount) FROM large_table GROUP BY user_id;
+
+# Time: 2025-10-14T23:23:00.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 7.850 Lock_time: 0.000 Rows_sent: 10 Rows_examined: 2200
+SET timestamp=1697318580;
+SELECT * FROM lt_users WHERE status = 'active' AND name LIKE 'J%';
+
+# Time: 2025-10-14T23:24:15.000000Z
+# User@Host: app_user[app_user] @ localhost []
+# Query_time: 4.750 Lock_time: 0.000 Rows_sent: 6 Rows_examined: 1000
+SET timestamp=1697318655;
+UPDATE lt_users SET email = LOWER(email) WHERE email IS NOT NULL;
+
+# Time: 2025-10-14T23:25:30.000000Z
+# User@Host: admin[admin] @ localhost []
+# Query_time: 9.600 Lock_time: 0.000 Rows_sent: 4 Rows_examined: 1800
+SET timestamp=1697318730;
+SELECT id, created_at FROM large_table WHERE amount > 2000 ORDER BY created_at DESC;
+
+# Time: 2025-10-14T23:26:45.000000Z
+# User@Host: guest[guest] @ localhost []
+# Query_time: 6.900 Lock_time: 0.000 Rows_sent: 7 Rows_examined: 1400
+SET timestamp=1697318805;
+DELETE FROM

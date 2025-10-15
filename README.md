@@ -17,4 +17,15 @@
 > - `*.txt`: 기타 참고(안내) 파일   
 > - `run_all.sh`: 장별 전체 실행 자동화 스크립트  
 
+---
+
+## 🚀 실습 환경
+
+| 항목 | 설명 |
+|------|------------|
+| OS | Linux / macOS / Windows (WSL) |
+| DBMS | MySQL 8.0 이상 |
+| Tool | MySQL CLI, DBeaver, Workbench 등 |
+
+---
 

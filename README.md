@@ -27,5 +27,37 @@
 | DBMS | MySQL 8.0 이상 |
 | Tool | MySQL CLI, DBeaver, Workbench 등 |
 
+
 ---
 
+## 🧰 참고 자료
+
+도서 공식 웹사이트: https://example.com/book
+
+질의응답 및 이슈 등록: GitHub Issues
+
+업데이트 공지: Releases
+
+---
+
+## ⚠️ 주의 사항
+
+예제는 학습 목적으로 제공되며, 실제 운영 환경에서는 적용 전에 충분히 테스트하세요.
+
+일부 SQL 구문은 DBMS 버전에 따라 실행 결과가 다를 수 있습니다.
+
+실습 데이터(sample_data.sql)는 자유롭게 수정 및 확장 가능합니다.
+
+---
+
+## 🏁 라이선스
+
+이 저장소의 예제 코드는 MIT License 하에 공개되어 있으며, 자유롭게 복제, 수정, 배포할 수 있습니다.
+단, 출처(도서명 및 저자명)는 명시해 주시기 바랍니다.
+
+---
+
+## ✍️ 저자 정보
+
+저자 : 라온
+Email: feelsogood008@google.com

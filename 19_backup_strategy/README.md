@@ -29,7 +29,9 @@
 ## 🛠️ 실행 방법
 1. mysqldump 백업  
    ```bash
-   chmod +x 01_backup_mysqldump.sh
-   ./01_backup_mysqldump.sh demo_db
+   cd 19_backup_strategy
+   chmod +x *.sh
+   ./01_full_backup_mysqldump.sh demo_db
+
 
 

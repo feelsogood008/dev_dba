@@ -10,7 +10,7 @@
 ## 📂 디렉터리 구성
 
 
-> ✅ 각 장 디렉터리에는 다음 파일이 포함됩니다:
+> ✅ 각 장 디렉터리에는 다음 파일이 포함됩니다
 > - `README.md`: 해당 장의 실습 목적 및 실행 가이드  
 > - `*.sql`: 주요 실습 SQL스크립트  
 > - `*.sh`: 주요 실습 쉘스크립트
@@ -23,20 +23,9 @@
 
 | 항목 | 설명 |
 |------|------------|
-| OS | Linux / macOS / Windows (WSL) |
+| OS | Windows (WSL) / Linux / macOS |
 | DBMS | MySQL 8.0 이상 |
 | Tool | MySQL CLI, DBeaver, Workbench 등 |
-
-
----
-
-## 🧰 참고 자료
-
-도서 공식 웹사이트: https://example.com/book
-
-질의응답 및 이슈 등록: GitHub Issues
-
-업데이트 공지: Releases
 
 ---
 
@@ -49,5 +38,4 @@
 
 ## ✍️ 저자 정보
 
-저자 : 라온
-Email: feelsogood008@google.com
+저자 : 라온 (feelsogood008@google.com)

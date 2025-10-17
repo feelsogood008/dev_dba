@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # xtrabackup 특정 DB 백업
 # 사용법: ./03_full_backup_xtrabackup.sh <DB_NAME>
@@ -20,6 +19,6 @@ xtrabackup --backup \
   --user=root \
   --password=비밀번호 \
   --target-dir="$BACKUP_DIR" \
-  --databases="$DB_NAME" 
+  --databases="$DB_NAME"
 
 echo "[완료] 디렉토리: $BACKUP_DIR"

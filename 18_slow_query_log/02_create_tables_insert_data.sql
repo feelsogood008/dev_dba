@@ -1,5 +1,6 @@
-USE demo_db;
+CREATE DATABASE IF NOT EXISTS demo_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+USE demo_db;
 
 -- =========================================
 -- 테이블 생성

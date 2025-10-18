@@ -11,14 +11,14 @@ if [ ! -d "$BACKUP_DIR" ]; then
 fi
 
 echo "[검증] MySQL 서비스 중지"
-systemctl stop mysql
+sudo systemctl stop mysql
 
 echo "[검증] 기존 데이터 삭제 후 복원"
-rm -rf $DATADIR/*
+sudo rm -rf $DATADIR/*
 sudo xtrabackup --copy-back --target-dir=$BACKUP_DIR
 chown -R mysql:mysql $DATADIR
 
 echo "[검증] MySQL 서비스 시작"
-systemctl start mysql
+sudo systemctl start mysql
 
 echo "[완료] 복구 검증 성공"

@@ -7,6 +7,14 @@
 DB_NAME=$1
 DATE=$(date +"%Y%m%d_%H%M%S")
 
+# 입력 인자 확인
+if [ -z "$DB_NAME" ]; then
+  echo "사용법: $0 <DB_NAME>"
+  echo "예:    ./06_hybrid_backup.sh demo_db"
+  exit 1
+fi
+
+
 BASE_DIR=./backup_strategy/hybrid
 SCHEMA_DIR=$BASE_DIR/schema_$DATE
 DATA_DIR=$BASE_DIR/data_$DATE

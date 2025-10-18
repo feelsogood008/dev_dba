@@ -10,6 +10,11 @@ if [ ! -d "$BACKUP_DIR" ]; then
   exit 1
 fi
 
+
+echo "[백업 준비] prepare(redo 로그 적용)"
+sudo xtrabackup --prepare --target-dir=$BACKUP_DIR
+
+
 echo "[검증] MySQL 서비스 중지"
 sudo systemctl stop mysql
 

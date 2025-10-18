@@ -16,7 +16,7 @@ if [ ! -d "$BACKUP_DIR" ]; then
   exit 1
 fi
 
-
+echo "[Hybrid] 백업준비(prepare)"
 sudo xtrabackup --prepare --target-dir=$BACKUP_DIR
 
 echo "[Hybrid] MySQL 서비스 중지"

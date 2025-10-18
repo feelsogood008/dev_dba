@@ -14,11 +14,11 @@ DATA_DIR=$BASE_DIR/data_$DATE
 mkdir -p $SCHEMA_DIR $DATA_DIR
 
 echo "[Hybrid] 1. 스키마(DDL) 백업 (mysqldump)"
-mysqldump -uroot -p --no-data --routines --triggers --events $DB_NAME \
+mysqldump -uroot -pP@ssw0rd --no-data --routines --triggers --events $DB_NAME \
   > $SCHEMA_DIR/${DB_NAME}_schema.sql
 
 echo "[Hybrid] 2. 데이터(물리적) 백업 (xtrabackup)"
-xtrabackup --backup --user=root --password=비밀번호 \
+xtrabackup --backup --user=root --password=P@ssw0rd \
   --target-dir=$DATA_DIR
 
 echo "[완료] 스키마: $SCHEMA_DIR/${DB_NAME}_schema.sql"

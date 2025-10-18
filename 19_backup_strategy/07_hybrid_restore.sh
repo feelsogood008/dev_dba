@@ -27,6 +27,11 @@ sudo rm -rf $DATADIR/*
 
 echo "[Hybrid] 데이터 복원 (xtrabackup)"
 sudo xtrabackup --copy-back --target-dir=$BACKUP_DIR --datadir=$DATADIR
+
+# xtrabackup: Can't create/write to file '/var/log/mysql/mysql-bin.000xxx' (OS errno 17 - File exists) 와 같은
+# 에러 발생시에는 sudo xtrabackup --no-defaults --copy-back --target-dir=$BACKUP_DIR --datadir=$DATADIR 처럼
+# --no-defaults 옵션을 추가한다.
+
 sudo chown -R mysql:mysql $DATADIR
 
 echo "[Hybrid] MySQL 서비스 시작"

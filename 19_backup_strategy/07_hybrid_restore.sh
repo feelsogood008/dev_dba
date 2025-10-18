@@ -26,7 +26,7 @@ echo "[Hybrid] 기존 데이터 삭제"
 sudo rm -rf $DATADIR/*
 
 echo "[Hybrid] 데이터 복원 (xtrabackup)"
-sudo xtrabackup --copy-back --target-dir=$BACKUP_DIR
+sudo xtrabackup --copy-back --target-dir=$BACKUP_DIR --datadir=$DATADIR
 sudo chown -R mysql:mysql $DATADIR
 
 echo "[Hybrid] MySQL 서비스 시작"

@@ -19,7 +19,7 @@ echo "[검증] MySQL 서비스 중지"
 sudo systemctl stop mysql
 
 echo "[검증] 기존 데이터 삭제 후 복원"
-sudo rm -rf $DATADIR/*
+sudo rm -rf $DATADIR/* $DATADIR/.[!.]*
 sudo mkdir -p /var/lib/mysql
 sudo chown mysql:mysql /var/lib/mysql
 

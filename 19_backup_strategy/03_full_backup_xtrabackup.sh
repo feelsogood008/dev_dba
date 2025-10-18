@@ -17,7 +17,7 @@ mkdir -p "$BACKUP_DIR"
 echo "[xtrabackup 전략] ${DB_NAME} 데이터베이스 전체 백업 시작..."
 xtrabackup --backup \
   --user=root \
-  --password=비밀번호 \
+  --password=P@ssw0rd \
   --target-dir="$BACKUP_DIR" \
   --databases="$DB_NAME"
 

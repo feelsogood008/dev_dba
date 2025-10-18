@@ -26,7 +26,7 @@ mysqldump -uroot -pP@ssw0rd --no-data --routines --triggers --events $DB_NAME \
   > $SCHEMA_DIR/${DB_NAME}_schema.sql
 
 echo "[Hybrid] 2. 데이터(물리적) 백업 (xtrabackup)"
-xtrabackup --backup --user=root --password=P@ssw0rd \
+sudo xtrabackup --backup --user=root --password=P@ssw0rd \
   --target-dir=$DATA_DIR
 
 echo "[완료] 스키마: $SCHEMA_DIR/${DB_NAME}_schema.sql"

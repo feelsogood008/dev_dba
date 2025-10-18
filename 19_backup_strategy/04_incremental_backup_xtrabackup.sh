@@ -13,7 +13,7 @@ fi
 mkdir -p $INC_DIR
 
 echo "[xtrabackup 전략] 증분 백업 시작..."
-xtrabackup --backup --user=root --password=비밀번호 \
+sudo xtrabackup --backup --user=root --password=P@ssw0rd \
   --target-dir=$INC_DIR --incremental-basedir=$BASE_DIR
 
 echo "[완료] 디렉토리: $INC_DIR"

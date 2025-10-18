@@ -2,6 +2,9 @@
 # xtrabackup 증분 백업
 # 사용법: ./04_incremental_backup_xtrabackup.sh ./backup_strategy/xtrabackup_full/full_xxxxx
 
+# xtrabackup 두 번째 증분 백업
+# sudo xtrabackup --backup --user=root --password=P@ssw0rd --target-dir="두 번째 증분백업 경로" --incremental-basedir="첫 번째 증분백업 경로"
+
 BASE_DIR=$1
 INC_DIR=./backup_strategy/xtrabackup_inc/inc_$(date +"%Y%m%d_%H%M%S")
 

@@ -38,6 +38,6 @@ echo "[Hybrid] MySQL 서비스 시작"
 sudo systemctl start mysql
 
 echo "[Hybrid] 스키마 복원 (mysqldump)"
-sudo mysql -uroot -pP@ssw0rd < $SCHEMA_FILE
+sudo mysql -uroot -pP@ssw0rd demo_db < $SCHEMA_FILE
 
 echo "[완료] Hybrid 복구 완료"

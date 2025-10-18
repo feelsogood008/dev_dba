@@ -18,7 +18,7 @@ sudo rm -rf $DATADIR/*
 sudo mkdir -p /var/lib/mysql
 sudo chown mysql:mysql /var/lib/mysql
 
-sudo xtrabackup --copy-back --target-dir=$BACKUP_DIR
+sudo xtrabackup --copy-back --target-dir=$BACKUP_DIR --datadir=$DATADIR
 sudo chown -R mysql:mysql $DATADIR
 
 echo "[검증] MySQL 서비스 시작"

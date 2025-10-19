@@ -5,7 +5,7 @@
 DB_NAME="demo_db"
 DATE=$(date +"%Y%m%d_%H%M%S")
 
-BASE_DIR=/var/backups/mysql/hybrid
+BASE_DIR=./backup_strategy/hybrid_cron/
 SCHEMA_DIR=$BASE_DIR/schema_$DATE
 DATA_DIR=$BASE_DIR/data_$DATE
 

@@ -22,10 +22,7 @@ send_slack() {
 sudo mkdir -p $SCHEMA_DIR $DATA_DIR
 
 echo "[Hybrid-Auto] $(date) - 스키마(DDL) 백업 시작"
-# mysqldump -uroot -pP@ssw0rd --no-data --routines --triggers --events $DB_NAME > $SCHEMA_DIR/${DB_NAME}_schema.sql
-
 sudo bash -c "mysqldump -uroot -pP@ssw0rd --no-data --routines --triggers --events ${DB_NAME} > ${SCHEMA_DIR}/${DB_NAME}_schema.sql"
-
 
 if [ $? -ne 0 ]; then
     send_slack ":x: [백업 실패] 스키마 덤프 실패 - $DB_NAME @ $(date)"

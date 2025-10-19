@@ -10,7 +10,7 @@ SCHEMA_DIR=$BASE_DIR/schema_$DATE
 DATA_DIR=$BASE_DIR/data_$DATE
 
 # Slack Webhook URL (실제 값으로 교체 필요)
-SLACK_WEBHOOK_URL="https://hooks.slack.com/services/XXXXX/XXXXX/XXXXXXXX"
+SLACK_WEBHOOK_URL="https://hooks.slack.com/services/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"
 
 send_slack() {
     local message="$1"

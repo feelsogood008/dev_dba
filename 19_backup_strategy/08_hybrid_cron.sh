@@ -14,18 +14,10 @@ SLACK_WEBHOOK_URL="https://hooks.slack.com/services/T09N5DL3S72/B09MFE4SP6Y/M5yk
 
 # Slack 메시지 전송 함수
 send_slack() {
-    local message="$1"
-    local payload
-    payload=$(printf '{"text":"%s"}' "$message")
-
-    # 절대경로 /usr/bin/curl 사용 (cron 환경 안전)
-    /usr/bin/curl -s -X POST -H 'Content-type: application/json' \
-        --data "$payload" "$SLACK_WEBHOOK_URL" >/dev/null 2>>/tmp/slack_error.log
+    MESSAGE="$1"
+    # curl 실행
+    /usr/bin/curl -s -X POST -H 'Content-type: application/json' --data "{\"text\":\"${MESSAGE}\"}" ${SLACK_WEBHOOK_URL} >/dev/null 2>>./slack_error.log
 }
-
-# 예시 실행
-send_slack ":white_check_mark: 백업 완료 @ $(date)"
-
 
 sudo mkdir -p $SCHEMA_DIR $DATA_DIR
 

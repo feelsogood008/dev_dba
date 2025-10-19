@@ -14,15 +14,16 @@ SLACK_WEBHOOK_URL="https://hooks.slack.com/services/T09N5DL3S72/B09MQ2L3S3T/gxo0
 
 send_slack() {
     local message="$1"
-    sudo curl -X POST -H 'Content-type: application/json' \
-        --data "{\"text\":\"$message\"}" $SLACK_WEBHOOK_URL >/dev/null 2>&1
+    curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$message\"}" "$SLACK_WEBHOOK_URL" >/dev/null 2>&1    
 }
 
 sudo mkdir -p $SCHEMA_DIR $DATA_DIR
 
 echo "[Hybrid-Auto] $(date) - 스키마(DDL) 백업 시작"
-mysqldump -uroot -pP@ssw0rd --no-data --routines --triggers --events $DB_NAME \
-  > $SCHEMA_DIR/${DB_NAME}_schema.sql
+# mysqldump -uroot -pP@ssw0rd --no-data --routines --triggers --events $DB_NAME > $SCHEMA_DIR/${DB_NAME}_schema.sql
+
+sudo bash -c "mysqldump -uroot -pP@ssw0rd --no-data --routines --triggers --events ${DB_NAME} > ${SCHEMA_DIR}/${DB_NAME}_schema.sql"
+
 
 if [ $? -ne 0 ]; then
     send_slack ":x: [백업 실패] 스키마 덤프 실패 - $DB_NAME @ $(date)"

@@ -10,18 +10,12 @@ SCHEMA_DIR=$BASE_DIR/schema_$DATE
 DATA_DIR=$BASE_DIR/data_$DATE
 
 # Slack Webhook URL (실제 값으로 교체)
-SLACK_WEBHOOK_URL="https://hooks.slack.com/services/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"
+SLACK_WEBHOOK_URL="https://hooks.slack.com/services/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"
 
 send_slack() {
     local message="$1"
-
-    # 이스케이프 처리: 큰따옴표와 백슬래시가 포함된 메시지 대응
-    local payload
-    payload=$(printf '{"text":"%s"}' "$message")
-
-    # curl 실행 (에러 로그는 /tmp 로 보냄)
-    /usr/bin/curl -s -X POST -H 'Content-type: application/json' \
-        --data "$payload" "$SLACK_WEBHOOK_URL" >/dev/null 2>>/tmp/slack_error.log
+    # curl 실행
+    /usr/bin/curl -s -X POST -H 'Content-type: application/json' --data "{\"text\":\"${MESSAGE}\"}" ${SLACK_WEBHOOK_URL} >/dev/null 2>>./slack_error.log
 }
 
 

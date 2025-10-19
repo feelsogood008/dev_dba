@@ -14,8 +14,9 @@ SLACK_WEBHOOK_URL="https://hooks.slack.com/services/T09N5DL3S72/B09MQ2L3S3T/gxo0
 
 send_slack() {
     local message="$1"
-    curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$message\"}" "$SLACK_WEBHOOK_URL" >/dev/null 2>&1    
+    /usr/bin/curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$message\"}" "$SLACK_WEBHOOK_URL" >/dev/null 2>&1
 }
+
 
 sudo mkdir -p $SCHEMA_DIR $DATA_DIR
 
@@ -43,4 +44,5 @@ fi
 sudo find $BASE_DIR -type d -mtime +7 -exec rm -rf {} \; 2>/dev/null
 
 send_slack ":white_check_mark: [백업 완료] $DB_NAME @ $(date)\n- 스키마: $SCHEMA_DIR/${DB_NAME}_schema.sql\n- 데이터 : $DATA_DIR"
+
 echo "[Hybrid-Auto] $(date) - 백업 및 정리 완료"

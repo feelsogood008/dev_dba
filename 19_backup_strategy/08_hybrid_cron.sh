@@ -18,7 +18,7 @@ send_slack() {
         --data "{\"text\":\"$message\"}" $SLACK_WEBHOOK_URL >/dev/null 2>&1
 }
 
-mkdir -p $SCHEMA_DIR $DATA_DIR
+sudo mkdir -p $SCHEMA_DIR $DATA_DIR
 
 echo "[Hybrid-Auto] $(date) - 스키마(DDL) 백업 시작"
 mysqldump -uroot -pP@ssw0rd --no-data --routines --triggers --events $DB_NAME \

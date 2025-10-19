@@ -10,13 +10,21 @@ SCHEMA_DIR=$BASE_DIR/schema_$DATE
 DATA_DIR=$BASE_DIR/data_$DATE
 
 # Slack Webhook URL (실제 값으로 교체)
-SLACK_WEBHOOK_URL="https://hooks.slack.com/services/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"
+SLACK_WEBHOOK_URL="https://hooks.slack.com/services/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"
 
+# Slack 메시지 전송 함수
 send_slack() {
     local message="$1"
-    # curl 실행
-    /usr/bin/curl -s -X POST -H 'Content-type: application/json' --data "{\"text\":\"${MESSAGE}\"}" ${SLACK_WEBHOOK_URL} >/dev/null 2>>./slack_error.log
+    local payload
+    payload=$(printf '{"text":"%s"}' "$message")
+
+    # 절대경로 /usr/bin/curl 사용 (cron 환경 안전)
+    /usr/bin/curl -s -X POST -H 'Content-type: application/json' \
+        --data "$payload" "$SLACK_WEBHOOK_URL" >/dev/null 2>>/tmp/slack_error.log
 }
+
+# 예시 실행
+send_slack ":white_check_mark: 백업 완료 @ $(date)"
 
 
 sudo mkdir -p $SCHEMA_DIR $DATA_DIR

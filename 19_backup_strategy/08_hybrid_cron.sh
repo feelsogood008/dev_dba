@@ -38,7 +38,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-send_slack "test"
 
 # 보관 정책: 7일 이상 된 백업은 삭제
 sudo find $BASE_DIR -type d -mtime +7 -exec rm -rf {} \; 2>/dev/null

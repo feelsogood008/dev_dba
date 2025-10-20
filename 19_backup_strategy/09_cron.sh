@@ -1,5 +1,7 @@
 #!/bin/bash
-# 09_cron.sh
+# 08_hybrid_cron.sh
+# 혼합 백업 전략 자동화 (cron 실행용 + Slack 알림 포함)
+
 # 환경 초기화
 source /etc/profile
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

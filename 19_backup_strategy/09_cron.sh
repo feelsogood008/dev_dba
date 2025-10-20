@@ -6,8 +6,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export HOME=/home/tester
 
 # 절대경로 지정
-BASE_DIR="/home/tester/dev_dba/19_backup_strategy"         
-DATA_DIR="$BASE_DIR/backup_strategy/hybrid_cron/full_$(date +%Y%m%d_%H%M%S)"
+BASE_DIR="/home/tester/dev_dba/19_backup_strategy/backup_strategy/hybrid_cron/full_$(date +%Y%m%d_%H%M%S)"         
 
 DB_NAME="demo_db"
 DATE=$(date +"%Y%m%d_%H%M%S")

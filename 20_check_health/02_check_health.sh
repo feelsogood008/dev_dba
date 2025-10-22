@@ -2,7 +2,7 @@
 # check_health.sh : MySQL 주기 점검 자동화 + 변화량 추적 + 알림
 
 DB_USER="root"
-DB_PASS="비밀번호"
+DB_PASS="P@ssw0rd"
 DB_NAME="demo_db"
 MONITOR_DB="monitoring_db"
 DATE=$(date +"%Y-%m-%d %H:%M:%S")

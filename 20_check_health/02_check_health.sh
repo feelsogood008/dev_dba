@@ -55,9 +55,7 @@ ALERT_MSG=""
 # 알림 전송
 if [ -n "$ALERT_MSG" ]; then
     # Slack 알림
-    curl -X POST -H 'Content-type: application/json' \
-      --data "{\"text\":\"[MySQL Alert] $DATE\n$ALERT_MSG\"}" \
-      $SLACK_WEBHOOK_URL
+    sudo /usr/bin/curl -s -X POST -H 'Content-type: application/json' --data "{\"text\":\"[MySQL Alert] $DATE\n$ALERT_MSG\"}" $SLACK_WEBHOOK_URL
 
     # 이메일 알림
     echo -e "$ALERT_MSG" | mail -s "[MySQL Alert] $DATE" admin@example.com

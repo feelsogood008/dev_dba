@@ -51,7 +51,7 @@ ALERT_MSG=""
 [ $delta_slow -gt 500 ] && ALERT_MSG+="🚨 슬로우 쿼리 급증: +$delta_slow\n"
 [ $delta_mb -gt 100 ] && ALERT_MSG+="🚨 테이블크기 증가: +${delta_mb}MB ($top_table)\n"
 [ $delta_noidx -gt 0 ] && ALERT_MSG+="🚨 인덱스없는 테이블 증가: +$delta_noidx\n"
-
+ 
 # 알림 전송
 if [ -n "$ALERT_MSG" ]; then
     # Slack 알림

@@ -45,12 +45,20 @@ delta_slow=$((slow_queries - prev_slow))
 delta_mb=$((top_table_mb - prev_mb))
 delta_noidx=$((no_index_cnt - prev_noidx))
 
+
 # 임계값 체크
 ALERT_MSG=""
 [ $delta_threads -gt 100 ] && ALERT_MSG+="🚨 연결 수 급증: +$delta_threads\n"
 [ $delta_slow -gt 500 ] && ALERT_MSG+="🚨 슬로우 쿼리 급증: +$delta_slow\n"
 [ $delta_mb -gt 100 ] && ALERT_MSG+="🚨 테이블크기 증가: +${delta_mb}MB ($top_table)\n"
 [ $delta_noidx -gt 0 ] && ALERT_MSG+="🚨 인덱스없는 테이블 증가: +$delta_noidx\n"
+
+echo "$ALERT_MSG"
+echo "$delta_threads"
+echo "$delta_slow"
+echo "$delta_mb"
+echo "$delta_noidx"
+
  
 # 알림 전송
 if [ -n "$ALERT_MSG" ]; then

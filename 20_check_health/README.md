@@ -15,8 +15,7 @@
 |--------|------|
 | 01_create_table.sql | 테이블 생성 |
 | 02_check_health.sh | 점검 자동화 스크립트 (이력 저장 + 변화량 추적 + Slack/메일 알림) |
-| 03_cleanup.sql | 실습 환경 초기화 스크립트 |
-| README.md | 실습 가이드 문서 |
+| 03_cleanup.sql | 리소스 정리 |
 
 
 ---
@@ -30,6 +29,7 @@
 
    chmod +x 02_check_health.sh
    ./02_check_health.sh
+
 
 
 

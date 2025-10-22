@@ -4,7 +4,7 @@
 DB_USER="root"
 DB_PASS="P@ssw0rd"
 DB_NAME="demo_db"
-MONITOR_DB="monitoring_db"
+MONITOR_DB="demo_db"
 DATE=$(date +"%Y-%m-%d %H:%M:%S")
 
 # Slack Webhook URL (사전 발급 필요)
@@ -49,8 +49,8 @@ delta_noidx=$((no_index_cnt - prev_noidx))
 ALERT_MSG=""
 [ $delta_threads -gt 100 ] && ALERT_MSG+="🚨 연결 수 급증: +$delta_threads\n"
 [ $delta_slow -gt 500 ] && ALERT_MSG+="🚨 슬로우 쿼리 급증: +$delta_slow\n"
-[ $delta_mb -gt 100 ] && ALERT_MSG+="🚨 테이블 급성장: +${delta_mb}MB ($top_table)\n"
-[ $delta_noidx -gt 0 ] && ALERT_MSG+="🚨 인덱스 없는 테이블 증가: +$delta_noidx\n"
+[ $delta_mb -gt 100 ] && ALERT_MSG+="🚨 테이블크기 증가: +${delta_mb}MB ($top_table)\n"
+[ $delta_noidx -gt 0 ] && ALERT_MSG+="🚨 인덱스없는 테이블 증가: +$delta_noidx\n"
 
 # 알림 전송
 if [ -n "$ALERT_MSG" ]; then

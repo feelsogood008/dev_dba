@@ -53,17 +53,15 @@ ALERT_MSG=""
 [ $delta_mb -gt 100 ] && ALERT_MSG+="🚨 테이블크기 증가: +${delta_mb}MB ($top_table)\n"
 [ $delta_noidx -gt 0 ] && ALERT_MSG+="🚨 인덱스없는 테이블 증가: +$delta_noidx\n"
 
-echo "$ALERT_MSG"
-echo "$delta_threads"
-echo "$delta_slow"
-echo "$delta_mb"
-echo "$delta_noidx"
-
+# echo -e "$ALERT_MSG"
  
 # 알림 전송
 if [ -n "$ALERT_MSG" ]; then
     # Slack 알림
-    sudo /usr/bin/curl -s -X POST -H 'Content-type: application/json' --data "{\"text\":\"[MySQL Alert] $DATE\n$ALERT_MSG\"}" $SLACK_WEBHOOK_URL
+  /usr/bin/curl -s -X POST -H 'Content-type: application/json' \
+  --data "$(jq -n --arg text "[MySQL Alert] $DATE
+  $ALERT_MSG" '{text: $text}')" \
+  "$SLACK_WEBHOOK_URL"
 
     # 이메일 알림
     echo -e "$ALERT_MSG" | mail -s "[MySQL Alert] $DATE" admin@example.com

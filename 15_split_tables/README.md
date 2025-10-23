@@ -24,9 +24,12 @@
 | 07_cleanup.sql | 리소스 정리 |
 | lock_monitor.sh | 락모니터 |
 
-
-
 ---
 
+## 🛠️ 실행 방법
+
+```bash
+chmod +x lock_monitor.sh
+./lock_monitor.sh
 
 

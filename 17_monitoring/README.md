@@ -20,6 +20,6 @@
 
 ## 🛠️ 실행 방법
 
-mysql -u root -p demo_db < 01_show_commands.sql \n
-mysql -u root -p demo_db < 02_information_schema.sql
-mysql -u root -p demo_db < 03_performance_schema.sql
+- mysql -u root -p demo_db < 01_show_commands.sql
+- mysql -u root -p demo_db < 02_information_schema.sql
+- mysql -u root -p demo_db < 03_performance_schema.sql

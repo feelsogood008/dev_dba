@@ -13,11 +13,11 @@ trap stop_script SIGINT
 while true; do
     CUR_TIME=$(date '+%Y-%m-%d %H:%M:%S')
     echo "[$CUR_TIME] metadata_locks:"
-    mysql -u$DB_USER -p$DB_PASS $DB_NAME -e "SELECT * FROM performance_schema.metadata_locks WHERE OBJECT_NAME='orders';"
-    echo "[$CUR_TIME] data_locks:"
-    mysql -u$DB_USER -p$DB_PASS $DB_NAME -e "SELECT * FROM performance_schema.data_locks WHERE OBJECT_NAME='orders';"
-    echo "[$CUR_TIME] data_lock_waits:"
-    mysql -u$DB_USER -p$DB_PASS $DB_NAME -e "SELECT * FROM performance_schema.data_lock_waits;"
+    mysql -u$DB_USER -p$DB_PASS $DB_NAME -e "SELECT object_type, object_name, lock_type, lock_status FROM performance_schema.metadata_locks WHERE OBJECT_NAME='orders';"
+    #echo "[$CUR_TIME] data_locks:"
+    #mysql -u$DB_USER -p$DB_PASS $DB_NAME -e "SELECT * FROM performance_schema.data_locks WHERE OBJECT_NAME='orders';"
+    #echo "[$CUR_TIME] data_lock_waits:"
+    #mysql -u$DB_USER -p$DB_PASS $DB_NAME -e "SELECT * FROM performance_schema.data_lock_waits;"
     echo "---"
     sleep 1
 done

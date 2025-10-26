@@ -79,13 +79,29 @@ CREATE TABLE orders (
     INDEX idx_user_id(user_id)
 );
 
--- orders 1,000,000건 삽입
+-- orders 5,000,000건 삽입
+INSERT INTO orders (user_id, order_date, status)
+SELECT FLOOR(1 + RAND()*100000), NOW(), 'pending'
+FROM seq_1_to_1000000;
+
+INSERT INTO orders (user_id, order_date, status)
+SELECT FLOOR(1 + RAND()*100000), NOW(), 'pending'
+FROM seq_1_to_1000000;
+
+INSERT INTO orders (user_id, order_date, status)
+SELECT FLOOR(1 + RAND()*100000), NOW(), 'pending'
+FROM seq_1_to_1000000;
+
+INSERT INTO orders (user_id, order_date, status)
+SELECT FLOOR(1 + RAND()*100000), NOW(), 'pending'
+FROM seq_1_to_1000000;
+
 INSERT INTO orders (user_id, order_date, status)
 SELECT FLOOR(1 + RAND()*100000), NOW(), 'pending'
 FROM seq_1_to_1000000;
 
 
-
 SELECT COUNT(*) FROM users;   -- 100,000
-SELECT COUNT(*) FROM orders;  -- 1,000,000
+SELECT COUNT(*) FROM orders;  -- 5,000,000
+
 

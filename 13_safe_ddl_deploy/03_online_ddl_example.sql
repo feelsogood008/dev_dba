@@ -2,12 +2,11 @@
 USE demo_db;
 
 
--- 세션3: DDL 시도
-ALTER TABLE orders ADD COLUMN last_updated TIMESTAMP NULL ALGORITHM=INPLACE, LOCK=NONE;
+-- 세션3 에서 수행
 
+-- DDL 시도(ALGORITHM=COPY)
+ALTER TABLE orders ADD COLUMN hold_lock_copy INT NOT NULL DEFAULT 1, ALGORITHM=COPY;
 
--- 현재 락 상태 확인
-SELECT * FROM performance_schema.metadata_locks;
-SELECT * FROM performance_schema.data_locks;
-SELECT * FROM performance_schema.data_lock_waits;
+-- DDL 시도(ALGORITHM=INPLACE)
+ALTER TABLE orders ADD COLUMN hold_lock_test2 INT NOT NULL DEFAULT 1, ALGORITHM=INPLACE, LOCK=NONE;
 

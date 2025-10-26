@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# 세션2 에서 실행
+
 DB_USER="root"
 DB_PASS="P@ssw0rd"
 DB_NAME="demo_db"
@@ -13,11 +15,7 @@ trap stop_script SIGINT
 while true; do
     CUR_TIME=$(date '+%Y-%m-%d %H:%M:%S')
     echo "[$CUR_TIME] metadata_locks:"
-    mysql -u$DB_USER -p$DB_PASS $DB_NAME -e "SELECT object_type, object_name, lock_type, lock_status FROM performance_schema.metadata_locks WHERE OBJECT_NAME='orders';"
-    #echo "[$CUR_TIME] data_locks:"
-    #mysql -u$DB_USER -p$DB_PASS $DB_NAME -e "SELECT * FROM performance_schema.data_locks WHERE OBJECT_NAME='orders';"
-    #echo "[$CUR_TIME] data_lock_waits:"
-    #mysql -u$DB_USER -p$DB_PASS $DB_NAME -e "SELECT * FROM performance_schema.data_lock_waits;"
+    mysql -u$DB_USER -p$DB_PASS $DB_NAME -e "SELECT ml.OBJECT_TYPE, ml.OBJECT_SCHEMA, ml.OBJECT_NAME, ml.LOCK_TYPE, ml.LOCK_STATUS, t.PROCESSLIST_ID, t.PROCESSLIST_USER, t.PROCESSLIST_INFO FROM performance_schema.metadata_locks ml JOIN performance_schema.threads t ON ml.OWNER_THREAD_ID = t.THREAD_ID WHERE ml.OBJECT_NAME = 'orders';"    
     echo "---"
     sleep 1
 done

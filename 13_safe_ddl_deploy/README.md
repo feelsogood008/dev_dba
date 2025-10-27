@@ -13,16 +13,18 @@ MySQL의 Online DDL을 활용하여 서비스 중단 없이 스키마를 변경�
 | 파일명 | 설명 |
 |--------|------|
 | 01_create_tables_insert_date.sql | 테이블 생성 및 데이터 입력 |
-| 02_blocking_query.sql | 일반적인 컬럼 변경 |
-| 03_online_ddl_example.sql | 온라인 컬럼 변경 |
-| 04_cleanup.sql | 락 상태 확인 |
-
+| 02_dml.sh | 주기적 업데이트 실행 |
+| 03_lock_monitor.sh | 주기적 락발생 여부 확인 |
+| 04_online_ddl_example.sql | 온라인 DDL 예시 |
+| 05_cleanup.sql | 리소스 정리 |
+  		 # 테스트 테이블 정리
 
 ---
 
 
 ## 🛠️ 실행 방법
 ```bash
-chmod +x run_all.sh
-./run_all.sh
+chmod +x 02_dml.sh 03_lock_monitor.sh
+./02_dml.sh
+
 
